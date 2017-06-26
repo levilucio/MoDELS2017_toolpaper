@@ -1,1 +1,114 @@
 \section{Highlights}
+
+\subsection{``Real'' EARS}
+
+A significant amount of effort was invested into making \textsf{EARS-CTRL} as close as
+possible to the real EARS templates used at Rolls-Royce. Given the fact that
+EARS was not originally built to describe requirements at a level where they can
+easily be transposed into a real system, a large investment was made into having
+a translation from EARS into Linear Temporal Logic (LTL) that would overcome the
+as much as possible the barriers between the structured but non-formal nature of
+EARS, and the strictly formal nature of LTL. One of the main goals of our
+approach is to remain as faithful as possible to the requirements-capturing
+method proposed by Mavin~\cite{}, thus retaining its advantages of \ldots, as
+described in~\cite{}. In such as manner our tool benefits from all the research
+and advantages of EARS described in the literature~\cite{}. In order to be able
+to ``write'' EARS-like requirements, a first analysis of the problem needs to be
+done in the shape of the creation of a of glossary for the problem at hand. Such
+a glossary is specific to the domain of controllers and identifies the
+components of the system to be controlled, which have sensors and actuators the
+controller logic will use respectively as inputs and outputs. Additionally, in
+the glossary the requirements engineer can also express relationships between 
+signals such that necessary constrains can be defined, as show in figure~\ref{}.
+
+Aliases for signals can also be defined, as can be seen in figure~\ref{}. These
+aliases are helpful in making the specification readable, as can be seen in the
+example in figure~\ref{}.
+
+In order to reach a functioning controller we then allow interacting with the
+automatically generated synthesizer using Simulink. When necessary the engineer
+can edit the EARS requirements, where necessary, to be able to generate
+controllers exhibiting the expected behavior. This may come at the cost of
+sacrificing some of the readabilty of the original EARS
+requirements.\levi{blahblah}
+
+\subsection{A Push-Button Approach}
+
+Controllers can be fully automatically synthesized from EARS requirements into
+controllers, at the push of a button. In order to achieve such as synthesis we
+use the \textsf{autoConf4} tool, which takes as input as set of LTL and
+propositional logic formulas. In figure~\ref{} we depict the translation of the
+automatic door specification in figure~\ref{} into LTL. Note that the
+translation is not directly one-to-one from EARS requirements into LTL formulas,
+as some details are added by the translation algorithm in order to take into
+consideration particularities of the \textsf{autoConf4} tool. This can be
+observed \ldots. This also implies an ordering of the EARS requirements such
+that\ldots
+
+\subsection{Verification}
+
+Our \textsf{EARS-CTRL} tool provides a set of mechanisms for verification, in
+particular \emph{Well-Formedness by Construction} when the specification is
+being built and \emph{simulation} of the synthesized controllers by exercising the
+controller manually using \textsf{simulink} as a back-end. We can also generate
+test cases for controllers that can either be used to debug the controller by
+analysing traces of execution of the controller or to be used as test-cases for
+alternative implementations of the controllers which are not automatically
+synthesized.
+
+\subsubsection{Well-Formedness by Construction}
+
+Well-Formedness by construction is enforced at two levels in \textsf{EARS-CTRL}:
+on the one hand only valid EARS requirement templates can be used. When the
+requirements engineer selects an EARS template, the corresponding sentence is
+shown to her as a structure with placeholders. These structures provide a
+first level of well-formedness, as only correct sentences can be written. The
+second level of well-formedness is guaranteed by the fact that only valid
+sensors or actuators can be chosen in those sentences' placeholders. This is
+illustrated in figure~\ref{}.
+
+Well-formedness allows writing syntactically correct \textsf{EARS-CTRL}
+specifications. The semantics of such specifications is then given by the
+\textsf{autoConf4} synthesizer in the form of a synchronous dataflow diagram,
+which \textsf{EARS-CTRL} can display when synthesis is possible. In the cases
+where synthesis is not possible the error code from the\textsf{autoConf4} tool
+is lifted such that the requirements that prevent the controller from being
+generated are pointed out. \levi{this is not done yet}
+
+\subsubsection{Simulation}
+
+Once a controller can be synthesized from a set of EARS requirements, it becomes
+important to understand whether that controller behaves as expected. In order to
+do so we have built a translator from synchronous dataflow diagrams into
+\textsf{Simulink}, which then allows us to exercise the behavior of the
+controller. In figure~\ref{} we display the panel that allows ``playing'' the
+controller by providing a sequence of inputs manually. Outputs are incrementally
+added to the panel as new inputs are provided by the requirements engineer.
+Note that the controller keeps state, which means that the order in which the commands are given matters.
+The ``Reset'' button in the panel allows resetting the controller to its initial
+state.
+
+\subsubsection{Generation of Test Cases}
+
+\textsf{EARS-CTRL} allows generating test cases directly from the EARS
+requirements. Test cases are generated through the panel displayed in
+figure~\ref{}. A test case consists of a sequence of $\langle
+  input, output \rangle$ pairs, where each input is a vector of sensor states
+  and each output a vector of actuator states. Note that individual sensors and
+  actuators assume two states: ``0'': off; ``1'': on.
+
+In the test generation panel the engineer can parameterize test generation by
+providing the following values:
+\begin{itemize}
+  \item \emph{Test Sequence Length:} defines the maximum length of the $\langle
+  input, output \rangle$ sequences to be generated.
+  \item \emph{Allow parallel inputs:} enables or disables the possibility of
+  having more than one sensor being active for inputs in the test case.
+  \item \emph{Allow repeated inputs:} enables or disables having repeated inputs
+  in the same test sequence. When enabled this parameter makes it such that
+  an input vector cannot occur more than once in a test sequence (thus limiting
+  the length of test sequences to the number of possible input vectors).
+\end{itemize}
+
+
+\subsection{Code Generation}

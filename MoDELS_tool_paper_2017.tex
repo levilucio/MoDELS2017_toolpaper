@@ -5,6 +5,33 @@
 %
 \documentclass{llncs}
 %
+
+% Put edit comments in a really ugly standout display
+\usepackage{xcolor} 
+\usepackage{ifthen}
+\usepackage{amssymb}
+\newboolean{showcomments}
+\setboolean{showcomments}{true} % toggle to show or hide comments
+\ifthenelse{\boolean{showcomments}}
+  {\newcommand{\nb}[2]{
+    \fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}
+    {$\blacktriangleright$#2$\blacktriangleleft$}
+   }
+   \newcommand{\version}{\emph{\scriptsize$-$working$-$}} 
+  }
+  {\newcommand{\nb}[2]{}
+   \newcommand{\version}{} 
+  }
+ 
+\usepackage[linewidth=1pt]{mdframed}
+\usepackage{lipsum} 
+
+% for comments
+\newcommand\levi[1]{\nb{Levi}{\textcolor{teal}{#1}}}
+\newcommand\salman[1]{\nb{Salman}{\textcolor{blue}{#1}}}
+\newcommand\ch[1]{\nb{Chih-Hong}{\textcolor{red}{#1}}}
+\newcommand\mav[1]{\nb{Mav}{\textcolor{black}{#1}}}
+
 \usepackage{makeidx}  % allows for indexgeneration
 %
 \begin{document}
@@ -42,13 +69,15 @@ Rolls-Royce, PO Box 31, Derby, UK\\
 Abstract here\ldots
 \end{abstract}
 
-\input{text_paper/introduction.tex}
+\input{text_paper/introduction.tex} 
 
 \input{text_paper/highlights.tex}
 
 \input{text_paper/architecture.tex}
 
 \input{text_paper/relatedwork.tex}
+
+\input{text_paper/limitationsfuturework.tex}
 
 \input{text_paper/conclusion.tex}
 
