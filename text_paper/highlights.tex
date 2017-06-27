@@ -5,25 +5,35 @@
 A significant amount of effort was invested into making \textsf{EARS-CTRL} as close as
 possible to the real EARS templates used at Rolls-Royce. Given the fact that
 EARS was not originally built to describe requirements at a level where they can
-easily be transposed into a real system, a large investment was made into having
-a translation from EARS into Linear Temporal Logic (LTL) that would overcome the
+automatically be transposed into a real system, a large investment was made into
+having a translation from EARS into the formalism used by a controller
+synthesizer (the Linear Temporal Logic -- LTL -- formalism) that would overcome 
 as much as possible the barriers between the structured but non-formal nature of
-EARS, and the strictly formal nature of LTL. One of the main goals of our
-approach is to remain as faithful as possible to the requirements-capturing
-method proposed by Mavin~\cite{}, thus retaining its advantages of \ldots, as
+EARS, and the strictly formal nature of LTL.
+
+\begin{figure}[t]
+   \begin{center}
+     \includegraphics[width=1\textwidth]{images/EARS-Reqs.png}
+     \caption{Requirements for a sliding door controller written using the 
+     \textsf{EARS-Ctrl} editor}
+     \label{fig:ears_reqs}
+   \end{center}
+ \end{figure}
+ 
+Figure~\ref{fig:ears_reqs} ilustrates a set of \textsf{EARS-Ctrl} requirements
+for the software controller for a sliding door. By remaining as close as
+possible to the original EARS syntax our editor allows building requirements in
+correct English that can easily read and undertood by humans. 
+
+One of the main goals of our approach is to remain as faithful as possible to
+the requirements-capturing method proposed by Mavin~\cite{}, thus retaining its advantages of \ldots, as
 described in~\cite{}. In such as manner our tool benefits from all the research
 and advantages of EARS described in the literature~\cite{}. In order to be able
 to ``write'' EARS-like requirements, a first analysis of the problem needs to be
 done in the shape of the creation of a of glossary for the problem at hand. Such
 a glossary is specific to the domain of controllers and identifies the
 components of the system to be controlled, which have sensors and actuators the
-controller logic will use respectively as inputs and outputs. Additionally, in
-the glossary the requirements engineer can also express relationships between 
-signals such that necessary constrains can be defined, as show in figure~\ref{}.
-
-Aliases for signals can also be defined, as can be seen in figure~\ref{}. These
-aliases are helpful in making the specification readable, as can be seen in the
-example in figure~\ref{}.
+controller logic will use respectively as inputs and outputs.
 
 In order to reach a functioning controller we then allow interacting with the
 automatically generated synthesizer using Simulink. When necessary the engineer
@@ -35,15 +45,7 @@ requirements.\levi{blahblah}
 \subsection{A Push-Button Approach}
 
 Controllers can be fully automatically synthesized from EARS requirements into
-controllers, at the push of a button. In order to achieve such as synthesis we
-use the \textsf{autoConf4} tool, which takes as input as set of LTL and
-propositional logic formulas. In figure~\ref{} we depict the translation of the
-automatic door specification in figure~\ref{} into LTL. Note that the
-translation is not directly one-to-one from EARS requirements into LTL formulas,
-as some details are added by the translation algorithm in order to take into
-consideration particularities of the \textsf{autoConf4} tool. This can be
-observed \ldots. This also implies an ordering of the EARS requirements such
-that\ldots
+controllers, at the push of a button. \ldots
 
 \subsection{Verification}
 
@@ -81,12 +83,7 @@ Once a controller can be synthesized from a set of EARS requirements, it becomes
 important to understand whether that controller behaves as expected. In order to
 do so we have built a translator from synchronous dataflow diagrams into
 \textsf{Simulink}, which then allows us to exercise the behavior of the
-controller. In figure~\ref{} we display the panel that allows ``playing'' the
-controller by providing a sequence of inputs manually. Outputs are incrementally
-added to the panel as new inputs are provided by the requirements engineer.
-Note that the controller keeps state, which means that the order in which the commands are given matters.
-The ``Reset'' button in the panel allows resetting the controller to its initial
-state.
+controller.
 
 \subsubsection{Generation of Test Cases}
 
@@ -101,14 +98,18 @@ In the test generation panel the engineer can parameterize test generation by
 providing the following values:
 \begin{itemize}
   \item \emph{Test Sequence Length:} defines the maximum length of the $\langle
-  input, output \rangle$ sequences to be generated.
+  input, output \rangle$ pair sequences to be generated.
   \item \emph{Allow parallel inputs:} enables or disables the possibility of
   having more than one sensor being active for inputs in the test case.
   \item \emph{Allow repeated inputs:} enables or disables having repeated inputs
   in the same test sequence. When enabled this parameter makes it such that
   an input vector cannot occur more than once in a test sequence (thus limiting
   the length of test sequences to the number of possible input vectors).
-\end{itemize}
+\end{itemize} 
 
 
 \subsection{Code Generation}
+
+Generation of C code can be achieved by running Simulink's code generator on the
+Simulink model that is generated from the requirements EARS expressed in 
+\textsf{EARS-CTRL}.
