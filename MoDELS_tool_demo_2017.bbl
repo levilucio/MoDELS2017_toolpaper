@@ -1,24 +1,13 @@
 \begin{thebibliography}{1}
 
-\bibitem{LucioRCA16}
-Levi L{\'{u}}cio, Salman Rahman, Chih-Hong Cheng, and Alistair Mavin.
-\newblock Just formal enough? automated analysis of ears requirements.
-\newblock In {\em 9th NASA Formal Methods Symposium NFM 2017, California, USA,
-  May 16 - 18, 2017}, 2017.
-\newblock To appear.
+\bibitem{EARSProject}
+Ears-ctrl github project.
+\newblock \url{https://github.com/levilucio/EARS-CTRL.git/}.
 
 \bibitem{EARS}
 A.~Mavin, P.~Wilkinson, A.~Harwood, and M.~Novak.
 \newblock Easy approach to requirements syntax (ears).
 \newblock In {\em 2009 17th IEEE International Requirements Engineering
   Conference}, pages 317--322, Aug 2009.
-
-\bibitem{DBLP:conf/pppj/PechSV13}
-Vaclav Pech, Alex Shatalin, and Markus Voelter.
-\newblock Jetbrains {MPS} as a tool for extending java.
-\newblock In Martin Pl{\"{u}}micke and Walter Binder, editors, {\em Proceedings
-  of the 2013 International Conference on Principles and Practices of
-  Programming on the Java Platform: Virtual Machines, Languages, and Tools,
-  Stuttgart, Germany, September 11-13, 2013}, pages 165--168. {ACM}, 2013.
 
 \end{thebibliography}
