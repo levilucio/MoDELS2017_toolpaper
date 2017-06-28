@@ -2,32 +2,18 @@
 \label{sec:intro}
 EARS (Easy Approach to Requirements Syntax) is an effective technique utilized
 by many organizations (e.g., Rolce Royce and others) to build effective
-requirements \cite{EARS}. In this demonstration part of the paper, we are going
-to go through steps for building the EARs-based requirements and performing test case generation for the
-sliding door example of a PLC based controller. Our tool is developed in
-Jetbrains MPS, a projectional meta editor for DSL
-development\cite{DBLP:conf/pppj/PechSV13}. The work presented here is an
-extension to our previous work on building complex controller requirements and
-automatic generation of the specified requirements
-\cite{LucioRCA16}.
-
-A brief installing information and links to the main github projects, URL links
-of the projects.
-
-Discuss the main purposes of our work,that are,
+requirements \cite{EARS}. Our tool is developed in Jetbrains MPS \cite{DBLP:conf/pppj/PechSV13}, a projectional meta editor for DSL development. 
+The work presented here is an extension to our previous work on building complex
+controller requirements model and automatic realisation of the EARS-based
+requirements as actual controllers \cite{LucioRCA16}. In this demonstration, we
+focus on providing a guidence to the users of our tool. A brief
+installation information and links to the main github projects can be found at URL links of the projects [reference..].
+An overview of the demonstration is as follows,
 \begin{itemize}
   \item Progressively build a set of requirements for the controller
   \item Perform analysis to ensure correct building of the example case
   (whether the controller is synthesizable or not!!!) and correctness by
   construction\ldots
   \item Automatic realisation of the synthesized controller (one click approach)
-  \item Automatic test case generation for performing conformance analysis
+  \item Simulation and test cases for performing conformance analysis
 \end{itemize}
-\emph{Notes:}
-Point can be arised that if you are generating code from the model why do we need tests? we can sell our
-idea by stating that we don't necessarly want to generate the code but write the
-controller requirements in EARS and somebody else can write the code. Some
-engineers don't rely on automatic code generation and want to develop/build
-controllers explicitly. In such a situation, test case generation would help to
-perform conformance between the specified controller and its respective
-implementation. 
