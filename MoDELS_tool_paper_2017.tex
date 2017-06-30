@@ -1,18 +1,28 @@
-% This is LLNCS.DEM the demonstration file of
-% the LaTeX macro package from Springer-Verlag
-% for Lecture Notes in Computer Science,
-% version 2.4 for LaTeX2e as of 16. April 2010
-%
 \documentclass{llncs}
 %
-
-% Put edit comments in a really ugly standout display
-\usepackage{xcolor} 
-\usepackage{ifthen}
+\usepackage{makeidx}  % allows for indexgeneration
+% 
+\usepackage{calc}
 \usepackage{amssymb}
-\usepackage{graphicx}
+\usepackage{amstext}
 \usepackage{amsmath}
+\usepackage{color, colortbl}
+
+\usepackage{xcolor} 
+
+\usepackage[final,pdftex]{graphicx}
+        \pdfcompresslevel=9
+        \DeclareGraphicsExtensions{.png} 
+
+\usepackage{chngcntr}
+\usepackage{epsfig} 
+\usepackage{url}
  
+\usepackage{ifthen} 
+\usepackage{amssymb}
+ 
+\usepackage{float} 
+
 \newboolean{showcomments}
 \setboolean{showcomments}{true} % toggle to show or hide comments
 \ifthenelse{\boolean{showcomments}}
@@ -20,31 +30,28 @@
     \fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}
     {$\blacktriangleright$#2$\blacktriangleleft$}
    }
-   \newcommand{\version}{\emph{\scriptsize$-$working$-$}} 
+   \newcommand{\version}{\emph{\scriptsize$-$working$-$}}
   }
   {\newcommand{\nb}[2]{}
-   \newcommand{\version}{} 
+   \newcommand{\version}{}
   }
- 
+
 \usepackage[linewidth=1pt]{mdframed}
-\usepackage{lipsum} 
+\usepackage{lipsum}
 
 % for comments
 \newcommand\levi[1]{\nb{Levi}{\textcolor{teal}{#1}}}
 \newcommand\salman[1]{\nb{Salman}{\textcolor{blue}{#1}}}
 \newcommand\ch[1]{\nb{Chih-Hong}{\textcolor{red}{#1}}}
 \newcommand\mav[1]{\nb{Mav}{\textcolor{black}{#1}}}
-
-\usepackage{makeidx}  % allows for indexgeneration
-%
 \begin{document}
+
 %
 \frontmatter          % for the preliminaries
 
 \mainmatter              % start of the contributions
 %
-\title{EARS-CTRL: From Natural Language to Controller Code in 1
-Click\levi{better title needed!}}
+\title{EARS-CTRL: Building and Verifying Controllers for Dummies}
 %
 \titlerunning{}  % abbreviated title (for running head)
 %                                     also used for the TOC unless
@@ -67,10 +74,18 @@ Rolls-Royce, PO Box 31, Derby, UK\\
 \email{alistair.mavin@rolls-royce.com}
 }
 
-\maketitle              % typeset the title of the contribution
+\maketitle              % typeset the title of the contribution 
 
 \begin{abstract}
-Abstract here\ldots
+In this paper we demonstrate the EARS-CTRL tool for automatically
+synthesizing controller software for embedded systems, having as starting point
+requirements written in (English) natural language. More precisely, we implement
+the EARS (Easy Approach to Requirements Syntax) approach invented and currently
+in use at Rolls-Royce. After expressing the requirements in English, the
+requirements engineer can produce the controller code at the press of a button.
+EARS-CTRL then provides facilities for verifying the generated
+controller by allowing step-by-step simulation or test-case generation using
+MathLab's Simulink.
 \end{abstract}
 
 \input{text_paper/introduction.tex} 
@@ -87,7 +102,7 @@ Abstract here\ldots
 
 %
 % ---- Bibliography ----
-%
+% 
 \bibliographystyle{abbrv}
 \bibliography{models_tool_2017}
 
