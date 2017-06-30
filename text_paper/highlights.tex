@@ -3,60 +3,106 @@
 \subsection{``Real'' EARS}
 
 A significant amount of effort was invested into making \textsf{EARS-CTRL} as close as
-possible to the real EARS templates used at Rolls-Royce. Given the fact that
+possible to the real EARS language used at Rolls-Royce. Given the fact that
 EARS was not originally built to describe requirements at a level where they can
 automatically be transposed into a real system, a large investment was made into
-having a translation from EARS into the formalism used by a controller
-synthesizer (the Linear Temporal Logic -- LTL -- formalism) that would overcome 
-as much as possible the barriers between the structured but non-formal nature of
+having a translation from EARS into the formalism used the controller
+synthesizer we use in our work: the Linear Temporal Logic -- LTL -- formalism.
+This translation was built to overcome as much as possible the barriers between the structured but non-formal nature of
 EARS, and the strictly formal nature of LTL.
 
-\begin{figure}[t]
+\begin{figure}[h!]
    \begin{center}
      \includegraphics[width=1\textwidth]{images/EARS-Reqs.png}
-     \caption{Requirements for a sliding door controller written using the 
-     \textsf{EARS-Ctrl} editor}
+     \caption{\textsf{EARS-CTRL} Requirements for a sliding door controller}
      \label{fig:ears_reqs}
    \end{center}
  \end{figure}
  
-Figure~\ref{fig:ears_reqs} ilustrates a set of \textsf{EARS-Ctrl} requirements
+Figure~\ref{fig:ears_reqs} ilustrates a set of \textsf{EARS-CTRL} requirements
 for the software controller for a sliding door. By remaining as close as
-possible to the original EARS syntax our editor allows building requirements in
-correct English that can easily read and undertood by humans. 
+possible to the original EARS syntax our editor allows building requirements as
+correct English sentences that can easily read and understood by humans.
 
-One of the main goals of our approach is to remain as faithful as possible to
-the requirements-capturing method proposed by Mavin~\cite{}, thus retaining its advantages of \ldots, as
-described in~\cite{}. In such as manner our tool benefits from all the research
-and advantages of EARS described in the literature~\cite{}. In order to be able
-to ``write'' EARS-like requirements, a first analysis of the problem needs to be
-done in the shape of the creation of a of glossary for the problem at hand. Such
-a glossary is specific to the domain of controllers and identifies the
-components of the system to be controlled, which have sensors and actuators the
-controller logic will use respectively as inputs and outputs.
+\begin{figure}[h!]
+\begin{center}
+\textbf{When} $\langle$trigger$\rangle$ \textbf{then the}
+$\langle$system name$\rangle$ \textbf{shall}
+$\langle$response$\rangle$ \textbf{until}
+$\langle$trigger$\rangle$.
+\caption{An non-standard state-driven EARS template including an \emph{until}
+clause.}
+\label{fig:ears_template_while}
+\end{center}
+\end{figure}
 
-In order to reach a functioning controller we then allow interacting with the
-automatically generated synthesizer using Simulink. When necessary the engineer
-can edit the EARS requirements, where necessary, to be able to generate
-controllers exhibiting the expected behavior. This may come at the cost of
-sacrificing some of the readabilty of the original EARS
-requirements.\levi{blahblah}
+In~\cite{LucioRCM17} we have presented a previous version of \textsf{EARS-CTRL}
+which included templates that, although not part of the original EARS, had been
+introduced to simplify translation into LTL.  An example of one such templates
+is presented in figure~\ref{fig:ears_template_while} -- the \textbf{while} segment of the
+requirement is not standard EARS and it has been removed in the version of
+\textsf{EARS-CTRL} we present in this paper. The work of briging the syntax of
+\textsf{EARS-CTRL} closer to ``real'' EARS while preserving a semantically
+meaniful translation into LTL was done with together with Alistair Mavin, the
+author of this paper who first proposed EARS~\cite{EARS09}.
+Our rationale is that, by remaining as faithful as possible to the original
+EARS syntax, we: 1) benefit from all the advantages of using EARS already
+investigated and described in the literature~\cite{EARS09,EARS16}; and 2)
+provide to Rolls-Royce and potentially other companies a tool that can immediately be used by engineers trained in using EARS.
+
+% , thus
+% retaining its advantages of \ldots, as described in~\cite{}. In such as manner our tool benefits from all the research
+% and advantages of EARS described in the literature~\cite{}.
+
+% One of the main goals of our approach is to  In order to be able
+% to ``write'' EARS-like requirements, a first analysis of the problem needs to be
+% done in the shape of the creation of a of glossary for the problem at hand.
+%
+% 
+% In order to reach a functioning controller we then allow interacting with the
+% automatically generated synthesizer using Simulink. When necessary the engineer
+% can edit the EARS requirements, where necessary, to be able to generate
+% controllers exhibiting the expected behavior. This may come at the cost of
+% sacrificing some of the readabilty of the original EARS
+% requirements.\levi{blahblah}
 
 \subsection{A Push-Button Approach}
 
 Controllers can be fully automatically synthesized from EARS requirements into
-controllers, at the push of a button. \ldots
+controllers, at the push of a button. Note that in order to build requirements
+model illustrated in figure~\ref{fig:ears_reqs} it is necessary to previously
+build a glossary for the controller. Such a glossary identifies the components
+of the system to be controlled. Each of those components contains sensors
+and/or actuators the controller logic will use respectively as inputs from and
+outputs to the real system. The vocabulary defined in the glossary is
+appropriately proposed by the editor to fill in the placeholders when a new
+requirement is built.
+
+\begin{figure}[h!]
+   \begin{center}
+     \includegraphics[width=.5\textwidth]{images/glossary.png}
+     \caption{\textsf{EARS-CTRL} Glossary for sliding door controller}
+     \label{fig:ears_glossary}
+   \end{center}
+ \end{figure}
+ 
+ We present in figure~\ref{fig:ears_glossary} the glossary for the automatic
+ door controller specification. Note that the glossary allows defining
+ invariants that will be taken into consideration during controller synthesis:
+ for example in the last line of glossary in figure~\ref{fig:ears_glossary} we
+ state that if the motor is \textsf{stopped}, then it cannot be
+ \textsf{opening} or \textsf{closing}.
 
 \subsection{Verification}
 
-Our \textsf{EARS-CTRL} tool provides a set of mechanisms for verification, in
-particular \emph{Well-Formedness by Construction} when the specification is
-being built and \emph{simulation} of the synthesized controllers by exercising the
-controller manually using \textsf{simulink} as a back-end. We can also generate
-test cases for controllers that can either be used to debug the controller by
-analysing traces of execution of the controller or to be used as test-cases for
-alternative implementations of the controllers which are not automatically
-synthesized.
+% Our \textsf{EARS-CTRL} tool provides a set of mechanisms for verification, in
+% particular \emph{Well-Formedness by Construction} when the specification is
+% being built and \emph{simulation} of the synthesized controllers by exercising the
+% controller manually using \textsf{simulink} as a back-end. We can also generate
+% test cases for controllers that can either be used to debug the controller by
+% analysing traces of execution of the controller or to be used as test-cases for
+% alternative implementations of the controllers which are not automatically
+% synthesized.
 
 \subsubsection{Well-Formedness by Construction}
 
@@ -66,30 +112,41 @@ requirements engineer selects an EARS template, the corresponding sentence is
 shown to her as a structure with placeholders. These structures provide a
 first level of well-formedness, as only correct sentences can be written. The
 second level of well-formedness is guaranteed by the fact that only valid
-sensors or actuators can be chosen in those sentences' placeholders. This is
-illustrated in figure~\ref{}.
+sensors or actuators can be chosen in those sentences' placeholders. 
 
 Well-formedness allows writing syntactically correct \textsf{EARS-CTRL}
 specifications. The semantics of such specifications is then given by the
 \textsf{autoConf4} synthesizer in the form of a synchronous dataflow diagram,
-which \textsf{EARS-CTRL} can display when synthesis is possible. In the cases
-where synthesis is not possible the error code from the\textsf{autoConf4} tool
-is lifted such that the requirements that prevent the controller from being
+which \textsf{EARS-CTRL} can display graphically when synthesis is possible. In
+the cases where synthesis is not possible the error code from the
+\textsf{autoConf4} tool is lifted such that the requirements that prevent the controller from being
 generated are pointed out. \levi{this is not done yet}
 
 \subsubsection{Simulation}
 
+\begin{figure}[h!]
+   \begin{center}
+     \includegraphics[width=.1\textwidth]{images/glossary.png}
+     \caption{\textsf{EARS-CTRL} specification simulator}
+     \label{fig:ears_glossary}
+   \end{center}
+ \end{figure}
+
 Once a controller can be synthesized from a set of EARS requirements, it becomes
 important to understand whether that controller behaves as expected. In order to
 do so we have built a translator from synchronous dataflow diagrams into
-\textsf{Simulink}, which then allows us to exercise the behavior of the
-controller.
+\textsf{Simulink} block diagramns, which then allows us to exercise the behavior
+of the controller. In figure~\ref{} we display the panel that allows
+``playing'' the controller by providing a sequence of inputs manually. Outputs
+are incrementally added to the panel as new inputs are provided by the
+requirements engineer. Note that the controller keeps state, which means that
+the order in which the commands are given matters. The ``Reset'' button in the
+panel allows resetting the controller to its initial state.
 
 \subsubsection{Generation of Test Cases}
 
 \textsf{EARS-CTRL} allows generating test cases directly from the EARS
-requirements. Test cases are generated through the panel displayed in
-figure~\ref{}. A test case consists of a sequence of $\langle
+requirements. A test case consists of a sequence of $\langle
   input, output \rangle$ pairs, where each input is a vector of sensor states
   and each output a vector of actuator states. Note that individual sensors and
   actuators assume two states: ``0'': off; ``1'': on.
@@ -106,7 +163,6 @@ providing the following values:
   an input vector cannot occur more than once in a test sequence (thus limiting
   the length of test sequences to the number of possible input vectors).
 \end{itemize} 
-
 
 \subsection{Code Generation}
 
