@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{EARSProject}
+Ears-ctrl github project.
+\newblock \url{https://github.com/levilucio/EARS-CTRL.git/}.
+
+\bibitem{EARS}
+A.~Mavin, P.~Wilkinson, A.~Harwood, and M.~Novak.
+\newblock Easy approach to requirements syntax (ears).
+\newblock In {\em 2009 17th IEEE International Requirements Engineering
+  Conference}, pages 317--322, Aug 2009.
+
+\end{thebibliography}

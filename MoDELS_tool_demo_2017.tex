@@ -6,7 +6,25 @@
 \documentclass{llncs}
 %
 \usepackage{makeidx}  % allows for indexgeneration
-%
+% 
+\usepackage{calc}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{color, colortbl}
+
+\usepackage[final,pdftex]{graphicx}
+        \pdfcompresslevel=9
+        \DeclareGraphicsExtensions{.png} 
+
+\usepackage{chngcntr}
+\usepackage{epsfig} 
+\usepackage{url}
+ 
+\usepackage{ifthen} 
+\usepackage{amssymb}
+ 
+\usepackage{float} 
 \begin{document}
 %
 \frontmatter          % for the preliminaries
@@ -39,45 +57,25 @@ Rolls-Royce, PO Box 31, Derby, UK\\
 \maketitle              % typeset the title of the contribution
 
 \begin{abstract}
-Abstract here\ldots
+In this part of the paper, we demonstrate our tool in practice with the example
+case study of a sliding door controller. We build controller specification in
+natural language, automatically generate the controller and then perform
+verification of the generated controller by utilizing testing and simulation
+techniques. The demo video can be found at:
+[URL: youtubevideo]
 \end{abstract}
 
-\input{text_demo/demosteps.tex} 
+\input{text_demo/Introduction.tex}
+\input{text_demo/Runningexample.tex}
+\input{text_demo/Demosteps.tex}
+\input{text_demo/Discussion.tex}
+\input{text_demo/brainstorm.tex}
 
-%s
-% ---- Bibliography ----
-%
-\begin{thebibliography}{5}
-%
-\bibitem {clar:eke}
-Clarke, F., Ekeland, I.:
-Nonlinear oscillations and
-boundary-value problems for Hamiltonian systems.
-Arch. Rat. Mech. Anal. 78, 315--333 (1982)
+\section*{Acknowledgements}
+This work presented in this paper was developed in the context of the
+``IETS3'' research project, funded by the German Federal Ministry of Education
+and Research under code 01IS15037A/B.
 
-\bibitem {clar:eke:2}
-Clarke, F., Ekeland, I.:
-Solutions p\'{e}riodiques, du
-p\'{e}riode donn\'{e}e, des \'{e}quations hamiltoniennes.
-Note CRAS Paris 287, 1013--1015 (1978)
-
-\bibitem {mich:tar}
-Michalek, R., Tarantello, G.:
-Subharmonic solutions with prescribed minimal
-period for nonautonomous Hamiltonian systems.
-J. Diff. Eq. 72, 28--55 (1988)
-
-\bibitem {tar}
-Tarantello, G.:
-Subharmonic solutions for Hamiltonian
-systems via a $\bbbz_{p}$ pseudoindex theory.
-Annali di Matematica Pura (to appear)
-
-\bibitem {rab}
-Rabinowitz, P.:
-On subharmonic solutions of a Hamiltonian system.
-Comm. Pure Appl. Math. 33, 609--633 (1980)
-
-\end{thebibliography}
-
+\bibliographystyle{plain}
+\bibliography{./bibliography}
 \end{document}
