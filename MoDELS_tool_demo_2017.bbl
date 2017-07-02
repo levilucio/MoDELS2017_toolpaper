@@ -4,6 +4,10 @@
 Ears-ctrl github project.
 \newblock \url{https://github.com/levilucio/EARS-CTRL.git/}.
 
+\bibitem{MatlabSimulink}
+Matlab2016a.
+\newblock \url{https://de.mathworks.com//}.
+
 \bibitem{EARS}
 A.~Mavin, P.~Wilkinson, A.~Harwood, and M.~Novak.
 \newblock Easy approach to requirements syntax (ears).
