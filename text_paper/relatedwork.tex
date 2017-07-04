@@ -1,1 +1,45 @@
 \section{Related Work}
+
+Given the recent fast-paced development of Artificial Intelligence based on
+increasigly powerful hardware, a number of projects have devoted effort to the
+generation of controllers from requirements. The ARSENAL
+project~\cite{ghosh2016arsenal} has as starting point specifications written in
+arbitrary natural language and uses the GR-1~\cite{piterman2006synthesis}
+synthesizer for automatically building controllers. In~\cite{YanCC15} the
+authors also use the GR-1 synthesizer to automatically build robot
+controllers. The work of Yan et. al. can take as inputs full LTL specifications
+and has features such as the use of dictionaries for automatically derive
+relations between terms or guessing the I/O partitioning that allow detecting
+inconsitencies in the specifications. The commercial argosym STIMULUS
+tool~\cite{jeannet16}, while not based on AI algorithms from controller
+synthesis, is a commercial platform that allows specifying requirements in a
+formal language using a close-to natural language syntax. Requirements expressed
+in STIMULUS can be simulated in order to look for inconsistencies, and test
+cases can also be created directly from the requirements.
+
+Our approach differs from the GR-1-based projects mentioned above in the sense
+that we do not aim at applying pure natural language parsing to arbitrary
+requirements. Using EARS allows us to provide the readability of the English
+language, while: 1) not forcing the requirements engineer to tweak
+her requirements to fit the mechanical constraints of a mathematical language;
+and 2) gently contraining the English language such that specifications can be
+written in a way that avoids problems inherent to the use of natural language
+when gathering requirements. Also, rather than using the full expressiveness of
+LTL, we have restricted our approach to the \textsf{GXW} subset of LTL which is
+handled by the \textsf{autoCode4} tool. Using this subset it is possible to 
+directly generate controllers as SDF diagrams, which are easy to
+inspect but also to simulate using Simulink. Tools that are based on GR-1 or
+bounded synthesis~\cite{schewe2007bounded} typically produce controllers as BDD
+or explicit state machine structures that can be very large and difficult to inspect or simulate. 
+
+Regarding the STIMULUS tool, our approach was conceptually though of
+starting from an opposite direction. While STIMULUS uses an English-like
+specification language that is syntactic sugar for an underlying state-machine
+formalism, \textsf{EARS-CTRL} uses a constrained version of the English
+language. We have purposefully placed EARS at the center on our tool -- the goal
+has to adapt the synthesis engine to English and not to be biased by the
+formalisms ``under the hood''. Additionally, STIMULUS relies on the state machine
+underlying the requirements to allow simulation and, unlike in our approach, no
+controller is actually synthesized as the tool is aimed at the requirements part
+of the software cycle.
+
