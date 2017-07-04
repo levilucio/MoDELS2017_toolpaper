@@ -13,6 +13,8 @@
 \usepackage{amsmath}
 \usepackage{color, colortbl}
 
+\usepackage{xcolor} 
+
 \usepackage[final,pdftex]{graphicx}
         \pdfcompresslevel=9
         \DeclareGraphicsExtensions{.png} 
@@ -25,6 +27,29 @@
 \usepackage{amssymb}
  
 \usepackage{float} 
+
+\newboolean{showcomments}
+\setboolean{showcomments}{true} % toggle to show or hide comments
+\ifthenelse{\boolean{showcomments}}
+  {\newcommand{\nb}[2]{
+    \fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}
+    {$\blacktriangleright$#2$\blacktriangleleft$}
+   }
+   \newcommand{\version}{\emph{\scriptsize$-$working$-$}}
+  }
+  {\newcommand{\nb}[2]{}
+   \newcommand{\version}{}
+  }
+
+\usepackage[linewidth=1pt]{mdframed}
+\usepackage{lipsum}
+
+% for comments
+\newcommand\levi[1]{\nb{Levi}{\textcolor{teal}{#1}}}
+\newcommand\salman[1]{\nb{Salman}{\textcolor{blue}{#1}}}
+\newcommand\ch[1]{\nb{Chih-Hong}{\textcolor{red}{#1}}}
+\newcommand\mav[1]{\nb{Mav}{\textcolor{black}{#1}}}
+
 \begin{document}
 %
 \frontmatter          % for the preliminaries
@@ -52,16 +77,17 @@ Guerickestra\ss e 25, 80805 M\"unchen\\
 \and
 Rolls-Royce, PO Box 31, Derby, UK\\
 \email{alistair.mavin@rolls-royce.com}
-}
+} 
 
 \maketitle              % typeset the title of the contribution 
 
 \begin{abstract}
-In this part of the paper, we demonstrate our tool in practice with the example
-case study of a sliding door controller. We build controller specification in
-natural language, automatically generate the controller and then perform
-verification of the generated controller by utilizing testing and simulation
-techniques. The demo video can be found at:
+In this part of the paper, we demonstrate our tool in practice with an example
+case study of a sliding door controller.\levi{maybe here we could use a diffrent
+case study} We build controller specification in natural language, automatically
+generate the controller and then perform verification of the generated
+controller by utilizing testing and simulation techniques. The demo video can be
+found at:
 [URL: youtubevideo]
 \end{abstract}
 \input{text_demo/Introduction.tex}
