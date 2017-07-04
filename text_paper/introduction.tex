@@ -1,30 +1,67 @@
 \section{Introduction}
 
-\levi{Talk about the rise of AI in program synthesis and formal methods and how
-we enable requirements engineers to get closer to get closer to a code-free
-program synthesis by providing an appropriate IDE} 
+The ultimate goal in human-computer interaction is that humans can ``explain''
+to computers their needs, using human-centered languages (ideally natural
+language). Computers will then perform the actions that will satisfy
+those needs. This trend can be observed to be on the rise with automated
+call-centers or personal assistants that, through voice commands, can
+automatically search for itineraries, restaurants, hotels and even perform
+online bookings.
 
-Note that the front-end of
-the tool is based on the MPS (Meta-Programming System) meta-editor.
+In this paper we describe the \textsf{EARS-CTRL} tool for building and verifying
+software controllers. \textsf{EARS-CTRL} has as starting point the EARS (Easy
+Approach to Requirements Syntax) language which was created at
+Rolls-Royce to improve gathering natural language requirements~\cite{EARS09}.
+The language can be seen as ``gently'' constrained English. Through the use of a
+small number of patterns, or formatted sentences, EARS copes well with large requirements
+specifications for several domains~\cite{EARS10,EARS16}. It has additionally
+been shown that using EARS is an effective way for reducing or, in some cases,
+eliminating many of the problems that plague requirements documents written
+using unconstrained natural language~\cite{EARS09}.
 
-The contributions of this paper are:
-\begin{itemize}
-  \item EARS syntax:
-\begin{itemize}
-  \item components are now devices that can have sensors and actuators and are
-  described in the glossary. This makes it for a more fluid English description. 
-  \item until clauses have been removed from templates. 
-\end{itemize}
-\item{Synthesis}
-\begin{itemize}
-  \item lifting of error codes from the synthesizer. 
-\end{itemize}
-\item Simulation and test case generation.
-\begin{itemize}
-  \item interaction with simulink for simulation.
-  \item interaction with simulink for text case generation
-\end{itemize}
+With the \textsf{EARS-CTRL} tool we attempt a step in the direction of
+controller construction by using natural language as a central specification
+artifact. After specifying the vocabulary to be used in the specification, a
+requirements engineer writes the specification using EARS templates. Then, at
+the press of a button the controller is synthesized. By using intuitive
+simulation and test case generation panels the requirements engineer can
+immediately experiment with and validate the controller by providing inputs and
+observing the resulting outputs.
 
-\levi{Where is EARS-CTRL available?}
+This paper is a follow-up of the article~\cite{LucioRCM17}, where we describe a
+previous version of the \textsf{EARS-CTRL} tool.
+Our new contributions are a revision of the requirements language of
+\textsf{EARS-CTRL} which is fully aligned with the original EARS -- by better
+covering the semantic gap between EARS and the underlying logical formalism for
+controller synthesis. We now also offer the possibilities of simulating 
+requirements specifications and of generating test cases.
 
-\end{itemize}
+The \textsf{EARS-CTRL} tool as well as a set of examples other than the ones we
+present in this paper is freely available at a GitHub project at \ldots.
+
+% \levi{Talk about the rise of AI in program synthesis and formal methods and how
+% we enable requirements engineers to get closer to get closer to a code-free
+% program synthesis by providing an appropriate IDE} 
+% 
+% Note that the front-end of
+% the tool is based on the MPS (Meta-Programming System) meta-editor.
+
+% The contributions of this paper are:
+% \begin{itemize}
+%   \item EARS syntax:
+% \begin{itemize}
+%   \item components are now devices that can have sensors and actuators and are
+%   described in the glossary. This makes it for a more fluid English description. 
+%   \item until clauses have been removed from templates. 
+% \end{itemize}
+% \item{Synthesis}
+% \begin{itemize}
+%   \item lifting of error codes from the synthesizer. 
+% \end{itemize}
+% \item Simulation and test case generation.
+% \begin{itemize}
+%   \item interaction with simulink for simulation.
+%   \item interaction with simulink for text case generation
+% \end{itemize}
+
+%\end{itemize}
