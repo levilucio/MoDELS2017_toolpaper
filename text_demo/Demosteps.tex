@@ -3,7 +3,9 @@
 \label{sec:demo}
 \vspace{-.3cm}
 In this Section, we discuss the main steps of process that needs to be followed
-for synthezing and performing the conformance analysis.
+for synthezing and performing the conformance\levi{``conformance'' has strict
+meanings in different contexts. I would say ``check if the controller behaves
+as expected''} analysis.
 \vspace{-.3cm}
 \subsection{Glossary building and terms definition}
 \vspace{-.2cm}
@@ -46,13 +48,13 @@ template with information and (\emph{C}) Completed EARS Specification }
 \subsection{Synthesizing \textsf{EARS-CTRL} requirements}
 \vspace{-.2cm}
 The user of the tool can attempt to synthesize the controller
-once the controller is completely specified. In order to synthesize the
-controller, the user can apply the \emph{Transform} intention by using the
+once the \levi{requirements for} controller is completely specified. In order to
+synthesize the controller, the user can apply the \emph{Transform} intention by using the
 \emph{Alt+Enter} keys on the root of the specification (as shown in \emph{part
 A} of figure~\ref{fig:Spec_transform}). The generated outputs after applying the
 intention comprised of, 1) \emph{Controller Holder}: Data Flow
-Diagram with blocks (\emph{part B} of figure~\ref{fig:Spec_transform}) and 2)
-\emph{Gate Descriptors}:
+Diagram with blocks \levi{and wires} (\emph{part B} of
+figure~\ref{fig:Spec_transform}) and 2) \emph{Gate Descriptors}:
 Pseudo code representing the behavior of the blocks (\emph{part C} of
 figure~\ref{fig:Spec_transform}).
 %\vspace{-.7cm}
@@ -68,29 +70,34 @@ Pseudo code representing the behavior of the blocks (an excerpt)}
 \subsection{Simulation and Test Cases for Conformance Analysis}
 \vspace{-.2cm}
 Conformance analysis for verification of the generated controller with respect
-to its specification can be performed by the following techniques, 1) simulating
-the behavior with Simulink engine \cite{MatlabSimulink} as a back-end and 2)
-automatically generating the test cases.
-The resulted traces are analyzed in order to check if the controller behaves as expected. The
-analysis can be performed as follows,
+to its specification \levi{not to its specification, but to the expected
+behavior} can be performed by the following techniques, 1) simulating the
+behavior with Simulink engine \cite{MatlabSimulink} as a back-end and 2) automatically generating the test cases.
+The resulted traces are analyzed in order to check if the controller behaves as
+expected. \levi{you can remove this following sentence}The analysis can be
+performed as follows,
 %\vspace{-.5cm}
 \subsubsection{Simulation}
 \vspace{-.2cm}
 In order to perform simulation of the generated controller, the user needs to
-provide the path in the \emph{Controller
-Holder} model to the folder containing the
-Simulink blocks (i.e., .m files). More information can be found at the Github
-project page \cite{EARSProject}. The user than applies the \emph{GenerateSimulinkModel} intention on the root of the \emph{Controller
-Holder} (i.e., Step A in figure~\ref{fig:SimulationSteps}). After getting the
-Simulink model generated, the user can apply the intention
+provide the path in the \emph{Controller Holder} model to the folder containing
+the Simulink blocks (i.e., .m files)\levi{you can be more generic here, just say
+that we have implemented Simulink blocks to allow for simulation, or just remove
+the sentence altogether}.
+More information can be found at the Github project page \cite{EARSProject}. The
+user than applies the \emph{GenerateSimulinkModel} intention on the root of the
+\emph{Controller Holder} (i.e., Step A in figure~\ref{fig:SimulationSteps}).
+After getting the Simulink model generated, the user can apply the intention
 \emph{AddOutputChecker} (i.e., Steps B and C in figure
 ~\ref{fig:SimulationSteps}) to start simulating the controller behavior by
 providing manual input. For simulation purpose, the user gets the
-\textsf{EARS-CTRL} panel that allows the user to simulate the controller by providing a sequence of inputs manually.
+\textsf{EARS-CTRL} panel \levi{why do we need to launch the intention AND
+create the panel?} that allows the user to simulate the controller by providing
+a sequence of inputs manually.
 Outputs are incrementally added to the panel as new inputs are provided by the
 requirements engineer (i.e., Step D in figure~\ref{fig:SimulationSteps}).
-A \textsf{“Reset Results”} button enables the user to reset the
-controller to its initial state.
+A \textsf{“Reset Results”} button enables the user to reset the controller to
+its initial state.
 \begin{figure*}[!h]
 \centering
 \includegraphics[width=1\textwidth]{./images/Simulation_Steps.png}
