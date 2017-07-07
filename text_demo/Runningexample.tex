@@ -1,15 +1,14 @@
-\vspace{-1cm}
-\section{The Running Example: Automatic Sliding Door}
+\vspace{-.5cm}
+\section{The Running Example: Quiz Controller}
 \label{sec:example}
 \vspace{-.3cm}
-Our running example for this demo is a sliding door system of PLC based
-controller. The behavior of the sliding door controller is supposed to be as
-follows: the sliding door opens if somebody enters by sensing the object using
-the infrared sensor. The sliding door opens until the opening limits are
-reached (also detected by the sensor). Upon reaching the opening limits the
-count down timer starts. and the controller then closes the door when the timer
-expires until the closing limit is reached detected by sensor.\levi{if we use a
-different example we can just put the EARS requirements here without much
-explanation also to show that EARS requirements are understandable on their
-own}
- 
+Our running example for this demo is a Quiz Controller (QC) system of PLC based
+controller. The behavior of the sliding door controller is illustrated as a set
+of \textsf{EARS-CTRL} requirements for the software controller for a QC as shown in
+figure~\ref{fig:QC_reqs}.
+\begin{figure*}[!h]
+\centering
+\includegraphics[width=1\textwidth]{./images/QC_Reqs.png}
+\caption{\emph{EARS-CTRL} Requiremens for a Quiz Controller}
+\label{fig:QC_reqs}
+\end{figure*}
