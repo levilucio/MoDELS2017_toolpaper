@@ -2,15 +2,16 @@
 \section{Tool Demonstration}
 \label{sec:demo}
 \vspace{-.3cm}
-In this Section, we discuss the main steps of process that needs to be followed
-for synthezing and performing the conformance analysis.
+In this section, we discuss the main steps of the process that need to be
+followed for synthesizing the EARS-CTRL specification into a controller and
+validating if the controller behaves as expected.
 \vspace{-.3cm}
 \subsection{Glossary building and terms definition}
 \vspace{-.2cm}
-The first step towards writing the controller specifications as a natural
-language in \textsf{EARS-CTRL} is to define the glossary terms. 
+The first step towards writing the controller specifications in natural
+language using \textsf{EARS-CTRL} is to define the glossary terms. 
 The user is provided with an editor
-(figure~\ref{fig:glossary_def}) to define glossary terms for the following,
+(figure~\ref{fig:glossary_def}) to define glossary terms for,
 1) components that interface with the controller, 2) sensors and actuators those components make available to the controller and 3) rules between
 signals definitions as aliases and invariants.
 \vspace{-.2cm}
@@ -18,19 +19,19 @@ signals definitions as aliases and invariants.
 \centering
 \includegraphics[width=1\textwidth]{./images/QC_Glossary_Def.png}
 \caption{Step-by-step glossary building for a Quiz Controller: (\emph{A})
-Components definition, (\emph{B}) Sensors definition, (\emph{C}) Actuators
-definition and (\emph{D}) Completed QC Glossary}
+components definition, (\emph{B}) sensors definition, (\emph{C}) actuators
+definition and (\emph{D}) completed QC glossary}
 \label{fig:glossary_def}
 \end{figure*}
 \vspace{-.2cm}
 \subsection{Building \textsf{EARS-CTRL} requirements for the Quiz Controller}
 \vspace{-.2cm}
-The user is provided with an editor built in MPS to specify the
+The user is provided with an editor built in MPS \cite{mps} to specify the
 controller behavior. The user can input the requirements simply by filling in the instance of the EARS template with
 placeholders in the editor. Figure~\ref{fig:EARS_req} provides step-by-step
 guidance to write the EARS requirements. In the projectional editor the user is
-provided with the option (i.e., using CTRL+Space keys on keyboard) to intantiate
-the EARS-based template with placeholders (\emph{Step A}). After obtaining an
+provided with the option (i.e., using \emph{CTRL+Space} keys of the keyboard) to
+instantiate the EARS-based template with placeholders (\emph{Step A}). After obtaining an
 instance of the EARS template, the user starts filling in the placeholders with the information
 (i.e., glossary definitions) (\emph{Step B}). \emph{Step C} of the
 figure~\ref{fig:EARS_req} depicts a complete Quiz Controller specification.
@@ -45,67 +46,56 @@ template with information and (\emph{C}) Completed EARS Specification }
 \vspace{-.2cm}
 \subsection{Synthesizing \textsf{EARS-CTRL} requirements}
 \vspace{-.2cm}
-The user of the tool can attempt to synthesize the controller
-once the controller is completely specified. In order to synthesize the
-controller, the user can apply the \emph{Transform} intention by using the
-\emph{Alt+Enter} keys on the root of the specification (as shown in \emph{part
-A} of figure~\ref{fig:Spec_transform}). The generated outputs after applying the
+Once the requirements for controller is completely specified, the user can
+attempt to synthesize the controller. For that, the user can apply the
+\emph{Transform} intention (i.e., by using the \emph{Alt+Enter} keys) on the root of the specification (as
+shown in \emph{part A} of figure~\ref{fig:Spec_transform}). The generated outputs after applying the
 intention comprised of, 1) \emph{Controller Holder}: Data Flow
-Diagram with blocks (\emph{part B} of figure~\ref{fig:Spec_transform}) and 2)
-\emph{Gate Descriptors}:
-Pseudo code representing the behavior of the blocks (\emph{part C} of
-figure~\ref{fig:Spec_transform}).
+Diagram with blocks and wires (\emph{part B} of figure~\ref{fig:Spec_transform})
+and 2) \emph{Gate Descriptors}: Pseudo code representing the behavior of the
+blocks (\emph{part C} of figure~\ref{fig:Spec_transform}).
 %\vspace{-.7cm}
 \begin{figure*}[!h]
 \centering
 \includegraphics[width=1\textwidth]{./images/Transform.png}
-\caption{Controller generation steps: (\emph{A}) Applying Intention (Alt+Enter),
-(\emph{B}) Data Flow Diagram of the controller (an excerpt) and (\emph{C})
-Pseudo code representing the behavior of the blocks (an excerpt)}
+\caption{Controller generation steps: (\emph{A}) applying intention \emph{Alt+Enter},
+(\emph{B}) synchronized Data Flow Diagram (DFD) of the controller (an excerpt)
+and (\emph{C}) pseudo code representing the behavior of the blocks (an excerpt)}
 \label{fig:Spec_transform}
 \end{figure*}
 \vspace{-.5cm}
-\subsection{Simulation and Test Cases for Conformance Analysis}
+\subsection{Simulation and Test Cases for Validation of Controller Behavior}
 \vspace{-.2cm}
-Conformance analysis for verification of the generated controller with respect
-to its specification can be performed by the following techniques, 1) simulating
-the behavior with Simulink engine \cite{MatlabSimulink} as a back-end and 2)
-automatically generating the test cases.
-The resulted traces are analyzed in order to check if the controller behaves as expected. The
-analysis can be performed as follows,
+Validation of the generated controller to check if it behaves as expected can be
+performed by the following techniques, 1) simulating the behavior with Simulink engine \cite{MatlabSimulink} as a back-end and 2) automatically generating the test cases.
+The resulted traces are analyzed in order to check if the controller behaves as expected.
 %\vspace{-.5cm}
 \subsubsection{Simulation}
 \vspace{-.2cm}
-In order to perform simulation of the generated controller, the user needs to
-provide the path in the \emph{Controller
-Holder} model to the folder containing the
-Simulink blocks (i.e., .m files). More information can be found at the Github
-project page \cite{EARSProject}. The user than applies the \emph{GenerateSimulinkModel} intention on the root of the \emph{Controller
-Holder} (i.e., Step A in figure~\ref{fig:SimulationSteps}). After getting the
-Simulink model generated, the user can apply the intention
-\emph{AddOutputChecker} (i.e., Steps B and C in figure
-~\ref{fig:SimulationSteps}) to start simulating the controller behavior by
-providing manual input. For simulation purpose, the user gets the
-\textsf{EARS-CTRL} panel that allows the user to simulate the controller by providing a sequence of inputs manually.
+In order to perform simulation of the generated controller, the user applies the \emph{GenerateSimulinkModel} intention on the root of the
+\emph{Controller Holder} (i.e., \emph{Step A}  in figure~\ref{fig:SimulationSteps}). After getting the Simulink model generated,
+the user can apply the intention \emph{AddOutputChecker} (i.e., \emph{Step B
+and C} in figure ~\ref{fig:SimulationSteps}) to start simulating
+the controller behavior by providing manual input. For simulation purpose, the user gets the \textsf{EARS-CTRL} panel that allows the user to simulate the controller by providing a sequence of inputs manually.
 Outputs are incrementally added to the panel as new inputs are provided by the
-requirements engineer (i.e., Step D in figure~\ref{fig:SimulationSteps}).
+requirements engineer (i.e., \emph{Step D} in figure~\ref{fig:SimulationSteps}).
 A \textsf{“Reset Results”} button enables the user to reset the
 controller to its initial state.
 \begin{figure*}[!h]
 \centering
 \includegraphics[width=1\textwidth]{./images/Simulation_Steps.png}
-\caption{Simulation steps for verification: (\emph{A}) Applying
-GenerateSimulinkModel Intention, (\emph{B}) Applying intention AddOutputChecker,
-(\emph{C}) Generated Empty \textsf{EARS-CTRL} panel and (\emph{D}) Manually
-simulating the Controller}
+\caption{Simulation steps for validation: (\emph{A}) applying
+GenerateSimulinkModel Intention, (\emph{B}) applying intention
+\textsf{AddOutputChecker} , (\emph{C}) generated empty
+\textsf{EARS-CTRL} panel and (\emph{D}) manually simulating the controller}
 \label{fig:SimulationSteps}
 \end{figure*}
 \vspace{-.3cm}
-\subsubsection{Automatic Test cases Generation} 
+\subsubsection{Automatic Test Cases Generation} 
 \vspace{-.5cm}
 The user can automatically generate test cases
 (figure~\ref{fig:TestCaseGeneration}) by setting in the testing parameters.
 For the test case generation, the user inputs the
 parameters in the \textsf{EARS-CTRL} panel.
 The parameters required for test case generation are as follows, 1) \textsf{Test
-Sequence Length(integer value)}, 2) \textsf{Allow parallel inputs(true/false)} and 3) \textsf{Allow repeated inputs (true/false)} .
+Sequence Length(integer value)}, 2) \textsf{Allow parallel inputs(true/false)} and 3) \textsf{Allow repeated inputs (true/false)}.

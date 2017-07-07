@@ -8,6 +8,10 @@ Ears-ctrl github project.
 Mathworks tool suite.
 \newblock \url{https://de.mathworks.com/}.
 
+\bibitem{mps}
+Meta programming system.
+\newblock \url{https://www.jetbrains.com/mps/}.
+
 \bibitem{EARS}
 A.~Mavin, P.~Wilkinson, A.~Harwood, and M.~Novak.
 \newblock Easy approach to requirements syntax (ears).
