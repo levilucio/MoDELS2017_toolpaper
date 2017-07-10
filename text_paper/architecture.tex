@@ -16,7 +16,7 @@ artifacts.\vspace{-.3cm}
    \end{center}
  \end{figure}
 \vspace{0cm}
-\paragraph{\textbf{1. Editors and Control Panels}\\} 
+\paragraph{\textbf{Editors and Control Panels}\\} 
 \hspace{-.2cm}
 The requirements editor, the glossary editor, the simulation and
 test generation control panell and the synchonous data-flow diagram visualizer (respectively
@@ -37,7 +37,7 @@ reflected in any requirements that refer to that component name. This automated
 change is an off-the-shelf feature of any editor defined using MPS and an easy
 way to guarantee that references between the several parts of an editor always
 remain consistent.\vspace{-.2cm}
-\paragraph{\textbf{2. From EARS to Lineal Temporal Logic}\\}
+\paragraph{\textbf{From EARS to Lineal Temporal Logic}\\}
 \label{sec:ears_LTL} 
 \hspace{-.2cm}
 Let us consider the requirement \textsf{Req1} which is part of the
@@ -77,7 +77,7 @@ clear from the second translation above:
 the door will only open, \emph{until} (denoted by the ``\textbf{W}'' operator)
 the door \textsf{opening limit reached} sensor is activated, \emph{or} other events
 stated in door-related requirements occur.\vspace{-.2cm}
-\paragraph{\textbf{3. Synthesizing a Controller using \textsf{autoCode4}}\\}
+\paragraph{\textbf{Synthesizing a Controller using \textsf{autoCode4}}\\}
 \hspace{-.2cm}Controller synthesis is achieved via \textsf{autoCode4}'s Java
 API. The LTL specification, obtained as explained in section~\ref{sec:ears_LTL},
 is passed into the synthesizer which returns a synchronous data-flow (SDF) diagram as a Java
@@ -87,7 +87,7 @@ which is an instance of the synchonous data-flow diagram visualizer DSL
 model provides the requirements engineer with a graphical and technical view of
 the synthesized controller as a set of blocks and wires, which can be used as a
 debugging artifact.\vspace{-.2cm}
-\paragraph{\textbf{4. Simulation and Test Generation using Simulink}\\}
+\paragraph{\textbf{Simulation and Test Generation using Simulink}\\}
 \hspace{-.2cm}The SDF diagram obtained from the \textsf{autoCode4} consists, for
 short, of a set of synchronized blocks that perform arithmetic, logical or other functions
 on input signals and return the result as output signals. Note that the
