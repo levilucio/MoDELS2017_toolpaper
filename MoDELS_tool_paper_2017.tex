@@ -24,7 +24,7 @@
 \usepackage{float} 
 
 \newboolean{showcomments}
-\setboolean{showcomments}{true} % toggle to show or hide comments
+\setboolean{showcomments}{false} % toggle to show or hide comments
 \ifthenelse{\boolean{showcomments}}
   {\newcommand{\nb}[2]{
     \fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}
@@ -44,6 +44,14 @@
 \newcommand\salman[1]{\nb{Salman}{\textcolor{blue}{#1}}}
 \newcommand\ch[1]{\nb{Chih-Hong}{\textcolor{red}{#1}}}
 \newcommand\mav[1]{\nb{Mav}{\textcolor{black}{#1}}}
+
+\usepackage[font={small}]{caption, subfig}
+
+\setlength{\textwidth}{13cm}
+\setlength{\textheight}{19.5cm}
+% \setlength{\oddsidemargin}{1.1cm}
+% \setlength{\evensidemargin}{1.1cm}
+
 \begin{document}
 
 %
@@ -75,7 +83,7 @@ Rolls-Royce, PO Box 31, Derby, UK\\
 }
 
 \maketitle              % typeset the title of the contribution 
-
+\vspace{-.5cm}
 \begin{abstract}
 In this paper we present the EARS-CTRL tool for synthesizing and 
 validating controller software for embedded systems. EARS-CTRL has as starting
@@ -84,7 +92,8 @@ the EARS (Easy Approach to Requirements Syntax) language invented and currently
 in use at Rolls-Royce. After expressing the requirements in English, the
 requirements engineer can produce the controller code at the press of a button.
 EARS-CTRL then provides facilities for validating the generated controller that
-allow step-by-step simulation or test-case generation using MathLab's Simulink.
+allow step-by-step simulation or test-case generation using MathLab's
+Simulink.\vspace{-.4cm} 
 \end{abstract}
 
 \input{text_paper/introduction.tex} 
@@ -96,7 +105,7 @@ allow step-by-step simulation or test-case generation using MathLab's Simulink.
 \input{text_paper/relatedwork.tex}
 
 \input{text_paper/limitationsfuturework.tex}
-
+\vspace{-.4cm}
 %\input{text_paper/conclusion.tex}
 
 %

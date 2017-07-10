@@ -1,27 +1,25 @@
 \section{Architecture}
-
-\begin{figure}[t]
-   \begin{center}
-     \includegraphics[width=1\textwidth]{images/toolchain.png}
-     \caption{The \textsf{EARS-CTRL} Tool Chain\levi{finish pic}}
-     \label{fig:ears_ctrl_toolchain}
-   \end{center}
- \end{figure}
- 
-In figure~\ref{fig:ears_ctrl_toolchain} we depict the architecture of the
-\textsf{EARS-CTRL} tool. In the following paragraphs we will provide to the
+\vspace{-.3cm}In figure~\ref{fig:ears_ctrl_toolchain} we depict the architecture
+of the \textsf{EARS-CTRL} tool. In the following paragraphs we will provide to the
 reader a brief description of the main components of the tool's architecture, how those
 components have been implemented as well as the artifacts they exchange. The
 paragraphs are numbered such that each description can be matched to the 
 process-related components of the tool depicted in
 figure~\ref{fig:ears_ctrl_toolchain}. 
 Letter-labels are used in figure~\ref{fig:ears_ctrl_toolchain} to refer to data
-artifacts.
- 
-\paragraph{1. Editors and Control Panels\\\\} 
-
-The requirements editor, the glossary editor, the simulation and test generation
-control panell and the synchonous data-flow diagram visualizer (respectively
+artifacts.\vspace{-.3cm}
+\begin{figure}[h!]
+   \begin{center}
+     \includegraphics[width=1\textwidth]{images/toolchain.png}
+     \caption{The \textsf{EARS-CTRL} Tool Chain\levi{finish pic}}
+     \label{fig:ears_ctrl_toolchain}
+   \end{center}
+ \end{figure}
+\vspace{0cm}
+\paragraph{\textbf{Editors and Control Panels}\\} 
+\hspace{-.2cm}
+The requirements editor, the glossary editor, the simulation and
+test generation control panell and the synchonous data-flow diagram visualizer (respectively
 noted (\textsf{a}), (\textsf{b}), (\textsf{c}) and (\textsf{d}) in figure~\ref{fig:ears_ctrl_toolchain}) have all been built as 
 domain-specific languages (DSLs) in the Meta Programming System (MPS)
 tool~\cite{mps}.
@@ -37,11 +35,11 @@ A direct consequence of this is for example the fact that when a component's
 name is updated an \textsf{EARS-CTRL} glossary, that change will immediately be
 reflected in any requirements that refer to that component name. This automated
 change is an off-the-shelf feature of any editor defined using MPS and an easy
-way to guarantee that references between the several parts of an editor always remain consistent.
-
-\paragraph{2. From EARS to Lineal Temporal Logic\\\\}
+way to guarantee that references between the several parts of an editor always
+remain consistent.\vspace{-.2cm}
+\paragraph{\textbf{From EARS to Lineal Temporal Logic}\\}
 \label{sec:ears_LTL} 
-
+\hspace{-.2cm}
 Let us consider the requirement \textsf{Req1} which is part of the
 specification of the sliding doors controller in figure~\ref{fig:ears_reqs}:
 \begin{center}
@@ -78,24 +76,20 @@ specification. This additional contextual information in the generated LTL is
 clear from the second translation above:
 the door will only open, \emph{until} (denoted by the ``\textbf{W}'' operator)
 the door \textsf{opening limit reached} sensor is activated, \emph{or} other events
-stated in door-related requirements occur.
- 
-\paragraph{3. Synthesizing a Controller using \textsf{autoCode4}\\\\}
- 
-Controller synthesis is achieved via \textsf{autoCode4}'s Java API. The LTL
-specification obtained as explained in section~\ref{sec:ears_LTL} is passed into
-the synthesizer which returns a synchronous data-flow (SDF) diagram as a Java
-object instance. The SDF diagram is then parsed and rebuilt as a visual model
+stated in door-related requirements occur.\vspace{-.2cm}
+\paragraph{\textbf{Synthesizing a Controller using \textsf{autoCode4}}\\}
+\hspace{-.2cm}Controller synthesis is achieved via \textsf{autoCode4}'s Java
+API. The LTL specification, obtained as explained in section~\ref{sec:ears_LTL},
+is passed into the synthesizer which returns a synchronous data-flow (SDF) diagram as a Java
+object instance. The SDF diagram is then rebuilt as a visual model
 which is an instance of the synchonous data-flow diagram visualizer DSL
 (identified by label (\textsf{e}) in figure~\ref{fig:ears_reqs}). Such a visual
 model provides the requirements engineer with a graphical and technical view of
 the synthesized controller as a set of blocks and wires, which can be used as a
-debugging artifact.
-
-\paragraph{4. Simulation and Test Generation using Simulink\\\\}
-
-The SDF diagram obtained from the \textsf{autoCode4} consists, for short, of a
-set of synchronized blocks that perform arithmetic, logical or other functions
+debugging artifact.\vspace{-.2cm}
+\paragraph{\textbf{Simulation and Test Generation using Simulink}\\}
+\hspace{-.2cm}The SDF diagram obtained from the \textsf{autoCode4} consists, for
+short, of a set of synchronized blocks that perform arithmetic, logical or other functions
 on input signals and return the result as output signals. Note that the
 controller's inputs and outputs are also themselves represented as blocks. The
 fashion in which blocks are synchronized is declared by connecting those blocks'
@@ -110,6 +104,6 @@ present in SDF specifications.
 
 The Simulink model is generated by \textsf{EARS-CTRL} as a Mathlab simulink
 script that programmatically builds the model (label (\textsf{e}) in
-figure~\ref{fig:ears_reqs}). Communication between the \textsf{EARS-CTRL} IDE
-and Simulink is achieved programmatically through the
-\textsf{mathlabcontrol}\cite{mathlabcontrol} Java API.
+figure~\ref{fig:ears_reqs}). The \textsf{EARS-CTRL} IDE
+communicates with Simulink via the \textsf{mathlabcontrol}\cite{mathlabcontrol}
+Java API.\vspace{-.5cm}
