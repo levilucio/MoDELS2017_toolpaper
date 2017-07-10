@@ -15,8 +15,7 @@ The user is provided with an editor
 1) components that interface with the controller; 2) sensors and actuators those
 components make available to the controller and 3) invariant relations
 that should hold between the sensor and actuator signals and aliases to
-formulas involving sensors or actuators for ease of writing.\levi{check for new
-version of the glossary for the QC}
+formulas involving sensors or actuators for ease of writing.
 \vspace{-.2cm}
 \begin{figure*}[!h]
 \centering
@@ -25,16 +24,13 @@ version of the glossary for the QC}
 components definition, (\emph{B}) sensors definition, (\emph{C}) actuators
 definition and (\emph{D}) completed QC glossary}
 \label{fig:glossary_def}
+\vspace{-.6cm}
 \end{figure*}
-\vspace{-.2cm}
 \subsection{Building \textsf{EARS-CTRL} requirements for the Quiz Controller}
 \vspace{-.2cm}
 The user is provided with an editor built in MPS \cite{mps} to specify the
-controller behavior. The user can input the requirements simply by filling in
-the instance of the EARS template with placeholders in the editor\levi{I don't
-think this sentence is necessary}.
-Figure~\ref{fig:EARS_req} provides step-by-step guidance to write the EARS
-requirements. In the projectional editor the user is provided with the option
+controller behavior. Figure~\ref{fig:EARS_req} provides step-by-step guidance to
+write the EARS requirements. In the projectional editor the user is provided with the option
 (i.e., using \emph{CTRL+Space} keys of the keyboard) to instantiate the
 EARS-based template with placeholders (\emph{Step A}). After obtaining an
 instance of the EARS template, the user fills in the placeholders with
@@ -43,30 +39,39 @@ of the figure~\ref{fig:EARS_req} depicts a complete Quiz Controller specificatio
 \begin{figure*}[!h]
 \centering
 \includegraphics[width=1.2\textwidth]{./images/Req_Spec_Steps.png}
-\caption{Step-by-step \textsf{EARS-CTRL} for controller requirements: (\emph{A})
-Empty instance of EARS template with placeholders, (\emph{B}) Filling instance of an EARS
-template with information and (\emph{C}) Completed EARS Specification }
+\caption{Step-by-step \textsf{EARS-CTRL} for controller requirements, (\emph{A})
+empty instance of EARS template with placeholders, (\emph{B}) filling instance
+of an EARS template with information and (\emph{C}) completed EARS Specification
+}
 \label{fig:EARS_req}
+\vspace{-.6cm}
 \end{figure*}
 \vspace{-.2cm}
 \subsection{Synthesizing \textsf{EARS-CTRL} requirements}
-\vspace{-.2cm}
+\label{SynthReq}
+\vspace{-.3cm}
 Once the requirements for controller are completely specified, the user can
 attempt to synthesize the controller. For that, the user can apply the
 \emph{Transform} intention (i.e., by using the \emph{Alt+Enter} keys) on the root of the specification (as
 shown in \emph{part A} of figure~\ref{fig:Spec_transform}). The generated outputs after applying the
-intention are comprised of: 1) the \emph{Controller Holder}, Data Flow
-Diagram (DFD) with blocks and wires (\emph{part B} of
-figure~\ref{fig:Spec_transform}); and 2) the \emph{Gate Descriptors}, pseudo
+intention are comprised of: 1) the \emph{Controller Holder},
+\emph{Synchronized Data Flow} (SFD) diagram with blocks and wires
+(\emph{part B} of figure~\ref{fig:Spec_transform}); 2) the \emph{Gate Descriptors}, pseudo
 code representing the behavior of each of the blocks used by the synthesized controller (\emph{part C} of
+figure~\ref{fig:Spec_transform}); 3) automatically generated Simulink block
+diagram (\emph{part D} of
+figure~\ref{fig:Spec_transform}); and 4) empty panel for performing simulation
+and test cases generation (\emph{part E} of
 figure~\ref{fig:Spec_transform}).
 %\vspace{-.7cm}
 \begin{figure*}[!h]
 \centering
 \includegraphics[width=1\textwidth]{./images/Transform.png}
 \caption{Controller generation steps: (\emph{A}) applying intention \emph{Alt+Enter},
-(\emph{B}) synchronized DFD of the controller (an excerpt)
-and (\emph{C}) pseudo code representing the behavior of the blocks (an excerpt)}
+(\emph{B}) synchronized DFD of the controller (an excerpt), (\emph{C}) pseudo
+code representing the behavior of the blocks (an excerpt), (\emph{D})
+generated Simulink model (an excerpt) and (\emph{E})
+generated empty panel for simulation}
 \label{fig:Spec_transform}
 \end{figure*}
 \vspace{-.5cm}
@@ -77,35 +82,24 @@ performed using following techniques: 1) simulating the behavior of the
 controller step-by-step; and 2) automatically generating the test cases.
 The resulting traces from simulation or test generation are analyzed in order to
 check if the controller behaves as expected.
-%\vspace{-.5cm}
+\vspace{-.3cm}
 \subsubsection{Simulation}
 \vspace{-.2cm}
-In order to perform simulation of the generated controller, the user
-starts by applying the \emph{GenerateSimulinkModel} intention on the root of the
-\emph{Controller Holder} (i.e., \emph{Step A}  in
-figure~\ref{fig:SimulationSteps}) to generate the Simulink counterpart of the
-controller\levi{this could be done in only one step together with the SDF
-controller}.
-After having the Simulink model generated, the user can apply the intention
-\emph{AddOutputChecker} (i.e., \emph{Step B and C} in figure
-~\ref{fig:SimulationSteps}) to start simulating the controller behavior by
-providing manual input. For simulation purpose, the user gets the
-\textsf{EARS-CTRL} panel that allows the user to simulate the controller by
-providing a sequence of inputs manually.\levi{is this sentence necessary?}
-Outputs are incrementally added to the panel as new inputs are provided by the
-requirements engineer (i.e., \emph{Step D} in figure~\ref{fig:SimulationSteps}).
-A \textsf{“Reset Results”} button enables the user to reset the controller to
-its initial state. 
+In order to perform simulation of the generated controller, the user gets the
+\textsf{EARS-CTRL} panel (i.e., as a result of applying the \emph{Transform}
+intention in section~\ref{SynthReq}) that allows the user to
+simulate the controller by providing a sequence of inputs manually.
+Figure~\ref{fig:SimulationSteps} shows a panel where outputs (i.e., the results)
+can be viewed in a tabular view provided to the user. A \textsf{“Reset Results”}
+button enables the user to reset the controller to its initial state. 
 \begin{figure*}[!h]
 \centering
-\includegraphics[width=1\textwidth]{./images/Simulation_Steps.png}
-\caption{Simulation steps for validation: (\emph{A}) applying
-GenerateSimulinkModel Intention, (\emph{B}) applying intention
-\textsf{AddOutputChecker} , (\emph{C}) generated empty
-\textsf{EARS-CTRL} panel and (\emph{D}) manually simulating the controller}
+\includegraphics[width=.9\textwidth]{./images/simulation.png}
+\caption{A panel for simulation of the generated controller for validation}
 \label{fig:SimulationSteps}
+\vspace{-.6cm}
 \end{figure*}
-\vspace{-.3cm}
+%\vspace{-.3cm}
 \subsubsection{Automatic Test Cases Generation} 
 \vspace{-.5cm}
 The user can automatically generate test cases
