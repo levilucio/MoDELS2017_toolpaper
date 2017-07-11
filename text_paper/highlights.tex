@@ -2,12 +2,11 @@
 \vspace{-.2cm}
 \subsection{``Real'' EARS}
 EARS was not originally built to describe requirements at a level where they can
-automatically be transposed into a real system. As such, an effort had to be
-made in order to overcome the semantic gap between, on the one hand, the
-structured but non-formal nature of EARS and, on the other hand, the strictly
-formal nature of the Linear Temporal Logic (LTL) formalism needed by the
-automated synthesis mechanisms.\vspace{-.5cm}
-\begin{figure}[h!]
+automatically be transposed into a computer application. As such, an effort had
+to be made in order to overcome the semantic gap between the structured but
+non-formal nature of EARS and the strictly formal nature of the Linear Temporal
+Logic (LTL) formalism needed by the automated synthesis
+mechanisms.\vspace{-.5cm} \begin{figure}[h!]
    \begin{center}
      \includegraphics[width=1\textwidth]{images/EARS-Reqs.png}
      \caption{\textsf{EARS-CTRL} Requirements for a sliding door
@@ -26,10 +25,10 @@ have presented a previous version of \textsf{EARS-CTRL} which included templates
 that, although not part of the original EARS, had been introduced to simplify
 translation into LTL. In particular we had introduced the possibility of adding
 an \emph{until} segment at the end of requirements which is not standard EARS
-and which we have removed in the current version of \textsf{EARS-CTRL}.
-The work of briging the syntax of \textsf{EARS-CTRL} closer to ``real'' EARS while preserving a semantically
-meaniful translation into LTL was done with together with Alistair Mavin, the
-author of this paper who is also the main proponent of EARS~\cite{EARS09}.
+and which we have removed in the current version of the tool.
+The work of bringing the syntax of \textsf{EARS-CTRL} closer to ``real'' EARS
+while preserving a semantically meaniful translation into LTL was done together with Alistair Mavin, the
+co-author of this paper who is also the lead author of EARS~\cite{EARS09}.
 Our rationale is that, by remaining as faithful as possible to the original EARS
 syntax, we: 1) benefit from all the advantages of using EARS already
 investigated and described in the literature~\cite{EARS09,EARS16}; and 2)
@@ -40,15 +39,17 @@ immediately be used by engineers trained in the use of EARS.\vspace{-.5cm}
 
 \textsf{EARS-CTRL} can synthesize software controllers directly from EARS
 requirements, at the push of a button. Such syntheses are produced 
-by the \textsf{autoConf4}~\cite{autoCode17} synthesizer in the form
+by the \textsf{autoConf4}~\cite{autoCode17} tool in the form
 of a synchronous dataflow (SDF) diagram, which our tool can display
-graphically. In the cases where synthesis is not possible the error code from
-the \textsf{autoConf4} tool is lifted such that the requirements that prevent
-the controller from being generated are pointed out.\vspace{-.5cm} \levi{this is
-not done yet}
+graphically.\vspace{-.3cm}
+
+% In the cases where synthesis is not possible the error code from
+% the \textsf{autoConf4} tool is lifted such that the requirements that prevent
+% the controller from being generated are pointed out.\vspace{-.5cm} \levi{lifting
+% of autoconf error codes not done yet}
 
 \subsection{Validation}
-\vspace{-.2cm}
+\vspace{-.1cm}
 % Our \textsf{EARS-CTRL} tool provides a set of mechanisms for verification, in
 % particular \emph{Well-Formedness by Construction} when the specification is
 % being built and \emph{simulation} of the synthesized controllers by exercising the
@@ -59,14 +60,30 @@ not done yet}
 % synthesized.
 
 \subsubsection{Well-Formedness by Construction}
-Well-formedness by construction is enforced in two different ways by
-\textsf{EARS-CTRL}: firstly, only valid EARS requirement patterns can be added
-to a requirements specification. When the requirements engineer picks an EARS
-template for her new requirement, the corresponding sentence is displayed by the
-IDE as a structure with placeholders. Such structures provide a first level of
-well-formedness, as only correctly formed EARS patterns can be added to the
-specification. Secondly, only valid sensors or actuators can be picked to fill
-in the placeholders in an EARS requirement.\vspace{-.5cm}
+% Well-formedness by construction is enforced in two different ways by
+% \textsf{EARS-CTRL}: firstly, only valid EARS requirement patterns can be added
+% to a requirements specification. When the requirements engineer picks an EARS
+% template for her new requirement, the corresponding sentence is displayed by the
+% IDE as a structure with placeholders. Such structures provide a first level of
+% well-formedness, as only correctly formed EARS patterns can be added to the
+% specification. Secondly, only valid sensors or actuators can be picked to fill
+% in the placeholders in an EARS requirement.\vspace{-.5cm}
+\vspace{-0cm}In order to build requirements model illustrated in
+figure~\ref{fig:ears_reqs} it is necessary to firstly build a glossary
+for the controller. An example of such a glossary is depicted in
+figure~\ref{fig:ears_glossary}. The first section of an \textsf{EARS-CTRL}
+glossary identifies the components of the system to be controlled. Each one of
+those components contains actuators and (possibly) sensors that will be used by
+the controller logic as inputs from and outputs to the real system. To allow for
+more ease of writing when building requirements, aliases for logical expressions
+involving sensors or actuators can also be defined in the glossary. More
+advanced users also have the possibility of defining invariant relationships
+between sensors or actuators.
+The vocabulary defined in the glossary is proposed to the requirements engineer
+by the \textsf{EARS-CTRL} IDE in order to fill in the placeholders of an EARS
+template when a new requirement is being written. Because well-formedness is
+enforced by construction, requirement specifications written in
+\textsf{EARS-CTRL} are always syntactically correct.\vspace{-.4cm}
 \begin{figure}[h!]
    \begin{center}
      \includegraphics[width=.5\textwidth]{images/glossary.png}
@@ -74,24 +91,8 @@ in the placeholders in an EARS requirement.\vspace{-.5cm}
      controller}
      \label{fig:ears_glossary}
    \end{center}
+   \vspace{-1.5cm}
  \end{figure} 
-\vspace{-1cm}Note that in order to build requirements model illustrated in
-figure~\ref{fig:ears_reqs} it is necessary to, as a first step, build a glossary
-for the controller. An example of such a glossary is depicted in
-figure~\ref{fig:ears_glossary}. The first section of an \textsf{EARS-CTRL}
-glossary identifies the components of the system to be controlled. Each one of
-those components contains actuators and (possibly) sensors that will be used by
-the controller logic as (respectively) inputs from and outputs to the real
-system. To allow for more ease of writing when building requirements, aliases
-for logical expressions involving sensors or actuators can also be defined in
-the glossary. More advanced users also have the possibility of defining
-invariant relationships between sensors or actuators.
-The vocabulary defined in the glossary is proposed to the requirements engineer
-by the \textsf{EARS-CTRL} IDE in order to fill in the placeholders of an EARS
-template when a new requirement being written.
-
-Because well-formedness is enforced by construction, requirement specifications
-written in \textsf{EARS-CTRL} are always syntactically correct.\vspace{-.4cm} 
 \subsubsection{Simulation}
 Once a controller has been synthesized from a set of EARS requirements, it
 becomes important to understand whether it behaves as expected. In order to do
@@ -100,8 +101,8 @@ In figure~\ref{fig:ears_simulator} we display the \textsf{EARS-CTRL} panel that
 allows ``playing'' the controller by providing a sequence of inputs manually.
 Outputs are incrementally added to the panel as new inputs are provided by the
 requirements engineer. Note that, because controllers have internal state,
-the order in which the commands influences the controller's output. A ``Reset''
-button in the panel allows resetting the controller to its initial
+the order in which commands are executed influences the controller's output. A
+``Reset'' button in the panel allows resetting the controller to its initial
 state.
 \vspace{-.4cm}
 \subsubsection{Generation of Test Cases}
@@ -117,10 +118,11 @@ generation is configured by three parameters:\vspace{-.1cm}
   \item \emph{Allow parallel inputs:} enables or disables the possibility of
   having more than one sensor being active for inputs in the test case.
   \item \emph{Allow repeated inputs:} enables or disables having repeated inputs
-  in the same test sequence. When enabled this parameter makes it such that
-  an input vector cannot occur more than once in a test sequence -- thus
-  limiting the length of test sequences to the number of possible input
-  vectors.\vspace{-.7cm}
+  in the same test sequence.\vspace{-.3cm} 
+%   When enabled this parameter makes it such that
+%   an input vector cannot occur more than once in a test sequence -- thus
+%   limiting the length of test sequences to the number of possible input
+%   vectors.\vspace{-.3cm}
 \end{itemize}
 \begin{figure}[h!]
    \begin{center}
@@ -129,17 +131,17 @@ generation is configured by three parameters:\vspace{-.1cm}
      with text}}
      \label{fig:ears_simulator}
    \end{center}
+   \vspace{-1cm}
  \end{figure}
-\vspace{-1cm}
-Test cases generated by \textsf{EARS-CTRL} can serve two purposes: on
-the one hand they are traces of execution of the synthesized controller and can
-be used to make sure that controller behaves as expected; on the other hand one
-may consider that the synthesizer is not trusted to generate controllers used in
-production: in this case the synthesized controller can behave as an oracle to
-generate test cases for a production controller implemented using alternative
+Test cases generated by \textsf{EARS-CTRL} can serve two purposes: firstly, they
+are traces of execution of the synthesized controller and can be used as
+witnesses of correct/incorrect behavior; secondly, ir may be that the
+synthesizer is not trusted to generate controllers used in production:
+in this case the synthesized controller can behave as an oracle to generate test
+cases for a production controller implemented using alternative
 means.\vspace{-.5cm}
 \subsection{Code Generation}
 \vspace{-.2cm}Although it is not possible to generate C code for the controller
 directly from \textsf{EARS-CTRL}, this can be achieved by directly running Simulink's code
 generator on the Simulink model obtained from an \textsf{EARS-CTRL} requirements
-specification.
+specification.\vspace{-.5cm}

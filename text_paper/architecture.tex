@@ -1,25 +1,26 @@
 \section{Architecture}
 \vspace{-.3cm}In figure~\ref{fig:ears_ctrl_toolchain} we depict the architecture
-of the \textsf{EARS-CTRL} tool. In the following paragraphs we will provide to the
-reader a brief description of the main components of the tool's architecture, how those
+of the \textsf{EARS-CTRL} tool. In the following paragraphs we will provide a
+brief description of the main components of the tool's architecture, how those
 components have been implemented as well as the artifacts they exchange. The
-paragraphs are numbered such that each description can be matched to the 
+paragraphs are numbered such that each description can be matched to the
 process-related components of the tool depicted in
-figure~\ref{fig:ears_ctrl_toolchain}. 
+figure~\ref{fig:ears_ctrl_toolchain}.
 Letter-labels are used in figure~\ref{fig:ears_ctrl_toolchain} to refer to data
 artifacts.\vspace{-.3cm}
-\begin{figure}[h!]
+\begin{figure}[h!] 
    \begin{center}
-     \includegraphics[width=1\textwidth]{images/toolchain.png}
+     \includegraphics[width=.9\textwidth]{images/toolchain.png}
      \caption{The \textsf{EARS-CTRL} Tool Chain\levi{finish pic}}
      \label{fig:ears_ctrl_toolchain}
    \end{center}
+      \vspace{-1cm}
  \end{figure}
 \vspace{0cm}
 \paragraph{\textbf{Editors and Control Panels}\\} 
 \hspace{-.2cm}
 The requirements editor, the glossary editor, the simulation and
-test generation control panell and the synchonous data-flow diagram visualizer (respectively
+test generation control panel and the synchonous data-flow diagram visualizer (respectively
 noted (\textsf{a}), (\textsf{b}), (\textsf{c}) and (\textsf{d}) in figure~\ref{fig:ears_ctrl_toolchain}) have all been built as 
 domain-specific languages (DSLs) in the Meta Programming System (MPS)
 tool~\cite{mps}.
@@ -88,7 +89,7 @@ model provides the requirements engineer with a graphical and technical view of
 the synthesized controller as a set of blocks and wires, which can be used as a
 debugging artifact.\vspace{-.2cm}
 \paragraph{\textbf{Simulation and Test Generation using Simulink}\\}
-\hspace{-.2cm}The SDF diagram obtained from the \textsf{autoCode4} consists, for
+\hspace{-.2cm}The SDF diagram obtained from \textsf{autoCode4} consists, for
 short, of a set of synchronized blocks that perform arithmetic, logical or other functions
 on input signals and return the result as output signals. Note that the
 controller's inputs and outputs are also themselves represented as blocks. The
