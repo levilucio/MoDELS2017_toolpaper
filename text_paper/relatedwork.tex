@@ -1,7 +1,7 @@
 \section{Related Work}
-\vspace{-.4cm}Given the recent fast-paced development of Artificial Intelligence
-relying on increasigly powerful hardware, a number of projects have devoted effort to the
-generation of controllers from requirements. The ARSENAL
+\vspace{-.2cm}Given the recent fast-paced development of Artificial Intelligence
+relying on increasingly powerful hardware, a number of projects have devoted
+effort to the generation of controllers from requirements. The ARSENAL
 project~\cite{ghosh2016arsenal} has as starting point specifications written in
 arbitrary natural language and uses the GR-1~\cite{piterman2006synthesis}
 synthesizer for automatically building controllers. In~\cite{YanCC15} the
@@ -20,13 +20,12 @@ Our approach differs from the GR-1-based projects mentioned above in the sense
 that we do not aim at applying pure natural language parsing to arbitrary
 requirements. Using EARS allows us to provide the readability of the English
 language while gently contraining it to fit the domain of requirements
-gathering. Also, rather than using the full expressiveness of LTL, we have
+expression. Also, rather than using the full expressiveness of LTL, we have
 restricted our approach to the \textsf{GXW} subset of LTL which is handled by
-the \textsf{autoCode4} tool. Using this subset it is possible to directly
-generate controllers as SDF diagrams, which are easy to inspect and to simulate.
-Tools that are based on GR-1 or bounded synthesis~\cite{schewe2007bounded}
-typically produce controllers as BDD or explicit state machine structures that
-can be very large and difficult to inspect or simulate.
+the \textsf{autoCode4} tool. We then directly generate controllers as SDF
+diagrams, which are easy to inspect and to simulate. GR-1- or bounded
+synthesis~\cite{schewe2007bounded}-based tools typically produce controllers as
+BDD or explicit state machine structures that can be very large and difficult to inspect or simulate.
 
 Regarding the STIMULUS tool, our approach was conceptually though of starting
 from an opposite direction -- while STIMULUS essencially uses as central
@@ -37,5 +36,5 @@ to adapt the subset of LTL used by \textsf{autoCode4} to EARS and to remain
 unbiased towards the formalisms ``under the hood''. Unlike in our work, STIMULUS
 relies on the state machines underlying the requirements to allow simulation as
 in fact the approach's goal is to verify requirements and not to synthesize
-usable controllers.\vspace{-.5cm}
+usable controllers.\vspace{-.6cm}
 
