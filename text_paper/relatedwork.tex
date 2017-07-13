@@ -4,14 +4,14 @@ relying on increasingly powerful hardware, a number of projects have devoted
 effort to the generation of controllers from requirements. The ARSENAL
 project~\cite{ghosh2016arsenal} has as starting point specifications written in
 arbitrary natural language and uses the GR-1~\cite{piterman2006synthesis}
-synthesizer for automatically building controllers. In~\cite{YanCC15} the
+synthesizer for automatically building controllers. In~\cite{kress2008translating} the
 authors also use the GR-1 synthesizer to automatically build robot
 controllers. The work of Yan et. al.~\cite{YanCC15} takes as inputs full LTL
 specifications and includes features such as the use of dictionaries for
 automatically derive relations between terms, or guessing the I/O partitioning
 that allow detecting inconsistencies in the specifications. The commercial
 argosym STIMULUS tool~\cite{jeannet16}, while not based on AI algorithms from controller
-synthesis, is a commercial platform that allows specifying requirements in a
+synthesis, is a commercial platform that allows specifying requirements in a 
 formal language using a close-to natural language syntax. Requirements expressed
 in STIMULUS can be simulated and test cases can also be directly generated from
 the requirements.
@@ -19,8 +19,8 @@ the requirements.
 Our approach differs from the GR-1-based projects mentioned above in the sense
 that we do not aim at applying pure natural language parsing to arbitrary
 requirements. Using EARS allows us to provide the readability of the English
-language while gently contraining it to fit the domain of requirements
-expression. Also, rather than using the full expressiveness of LTL, we have
+language while gently contraining it to fit the domain of expressing
+requirements. Also, rather than using the full expressiveness of LTL, we have
 restricted our approach to the \textsf{GXW} subset of LTL which is handled by
 the \textsf{autoCode4} tool. We then directly generate controllers as SDF
 diagrams, which are easy to inspect and to simulate. GR-1- or bounded
