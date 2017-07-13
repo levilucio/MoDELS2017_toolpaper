@@ -19,8 +19,8 @@ artifacts.\vspace{-.3cm}
 \paragraph{\textbf{Editors and Control Panels}\\} 
 \hspace{-.2cm}
 The requirements editor, the glossary editor, the simulation and
-test generation control panel and the synchonous data-flow diagram visualizer (respectively
-noted (\textsf{a}), (\textsf{b}), (\textsf{c}) and (\textsf{d}) in figure~\ref{fig:ears_ctrl_toolchain}) have all been built as 
+test generation control panel and the synchronous data-flow diagram visualizer
+(respectively noted (\textsf{a}), (\textsf{b}), (\textsf{c}) and (\textsf{d}) in figure~\ref{fig:ears_ctrl_toolchain}) have all been built as 
 domain-specific languages (DSLs) in the Meta Programming System (MPS)
 tool~\cite{mps}.
 MPS is both a projectional editor and a domain-specific language workbench.
@@ -97,7 +97,7 @@ fashion in which blocks are synchronized is declared by connecting those blocks'
 inputs and outputs via wires. In order to simulate \textsf{EARS-CTRL}
 specifications we have built a translator from such SDF diagrams onto Simulink
 models (label (\textsf{e}) in figure~\ref{fig:ears_reqs}). Given that the SDF
-formalism is very similar to the Simulink formalism, the structural translation is  one-to-one. However, only a subset of all blocks
+formalism is very similar to the Simulink formalism, the structural translation is one-to-one. However, only a subset of all blocks
 present in the SDF specifications that are produced by \textsf{autoCode4} is
 available off-the-shelf in Simulink. As such, a number of stateful Simulink
 blocks had to be built by us to mimic the semantics of some of the blocks
