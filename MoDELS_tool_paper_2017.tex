@@ -27,7 +27,7 @@
 \setboolean{showcomments}{false} % toggle to show or hide comments
 \ifthenelse{\boolean{showcomments}}
   {\newcommand{\nb}[2]{
-    \fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}
+    \fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}  
     {$\blacktriangleright$#2$\blacktriangleleft$}
    }
    \newcommand{\version}{\emph{\scriptsize$-$working$-$}}
@@ -36,8 +36,8 @@
    \newcommand{\version}{}
   } 
 
-\usepackage[linewidth=1pt]{mdframed} 
-\usepackage{lipsum} 
+\usepackage[linewidth=1pt]{mdframed}
+\usepackage{lipsum}  
 
 % for comments
 \newcommand\levi[1]{\nb{Levi}{\textcolor{teal}{#1}}}
@@ -59,7 +59,7 @@
 
 \mainmatter              % start of the contributions
 %
-\title{EARS-CTRL: Building and Validating Controllers for Dummies}
+\title{EARS-CTRL: Generating Controllers for Dummies}
 %
 \titlerunning{}  % abbreviated title (for running head)
 %                                     also used for the TOC unless
@@ -83,7 +83,7 @@ Rolls-Royce, PO Box 31, Derby, UK\\
 }
 
 \maketitle              % typeset the title of the contribution 
-\vspace{-.5cm}
+\vspace{-1cm}
 \begin{abstract}
 In this paper we present the EARS-CTRL tool for synthesizing and validating
 controller software for embedded systems. EARS-CTRL has as starting point
@@ -94,7 +94,7 @@ the requirements in English, the requirements engineer can produce the
 controller code at the press of a button.
 EARS-CTRL then provides facilities for validating the generated controller that
 allow step-by-step simulation or test-case generation using MathLab's
-Simulink.\vspace{-.4cm}
+Simulink.\vspace{-.6cm}
 \end{abstract}
 
 \input{text_paper/introduction.tex} 

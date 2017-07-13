@@ -6,16 +6,15 @@ In this section, we discuss the main steps of the process that need to be
 followed for synthesizing the EARS-CTRL specification into a controller and
 validating if the controller behaves as expected.
 \vspace{-.3cm}
-\subsection{Glossary building and terms definition}
+\subsection{Building a Glossary}
 \vspace{-.2cm}
 The first step towards writing the controller specifications in natural
-language using \textsf{EARS-CTRL} is to define the glossary terms. 
-The user is provided with an editor
-(figure~\ref{fig:glossary_def}) to define glossary terms for:
-1) components that interface with the controller; 2) sensors and actuators those
-components make available to the controller and 3) invariant relations
-that should hold between the sensor and actuator signals and aliases to
-formulas involving sensors or actuators for ease of writing.
+language using \textsf{EARS-CTRL} is to define a glossary of terms. 
+As is depicted in figure~\ref{fig:glossary_def}, the user is provided with an
+editor to define glossary terms for: 1) components that interface with the
+controller; 2) sensors and actuators those components make available to the controller; 3) invariant relations
+that should hold between the sensor and actuator signals; and 4) for ease of
+writing, aliases to formulas involving sensors or actuators.
 \vspace{-.2cm}
 \begin{figure*}[!h]
 \centering
@@ -28,14 +27,13 @@ definition and (\emph{D}) completed QC glossary}
 \end{figure*}
 \subsection{Building \textsf{EARS-CTRL} requirements for the Quiz Controller}
 \vspace{-.2cm}
-The user is provided with an editor built in MPS \cite{mps} to specify the
-controller behavior. Figure~\ref{fig:EARS_req} provides step-by-step guidance to
-write the EARS requirements. In the projectional editor the user is provided with the option
-(i.e., using \emph{CTRL+Space} keys of the keyboard) to instantiate the
-EARS-based template with placeholders (\emph{Step A}). After obtaining an
-instance of the EARS template, the user fills in the placeholders with
+Figure~\ref{fig:EARS_req} provides the set of steps required to write a set of
+EARS requirements. In the projectional editor the user presses the CTRL+Space
+key combination to instantiate an EARS-based template that presents a number of
+placeholders (\emph{Step A}\levi{fix step A with new editor}). After obtaining
+an instance of the EARS template, the user fills in the placeholders with
 information coming from the glossary definitions (\emph{Step B}). \emph{Step C}
-of the figure~\ref{fig:EARS_req} depicts a complete Quiz Controller specification.
+depicts the complete Quiz Controller specification.
 \begin{figure*}[!h]
 \centering
 \includegraphics[width=1.2\textwidth]{./images/Req_Spec_Steps.png}
@@ -49,20 +47,21 @@ of an EARS template with information and (\emph{C}) completed EARS Specification
 \vspace{-.2cm}
 \subsection{Synthesizing \textsf{EARS-CTRL} requirements}
 \label{SynthReq}
-\vspace{-.3cm}
+\vspace{-0cm}
 Once the requirements for controller are completely specified, the user can
-attempt to synthesize the \textsf{EARS-CTRL} requirements. For that,
-the user can apply the \emph{Transform} intention (i.e., by using the \emph{Alt+Enter} keys) on the root of the specification (as
-shown in \emph{part A} of figure~\ref{fig:Spec_transform}). The generated outputs after applying the
-intention are comprised of: 1) the \emph{Controller Holder},
-\emph{Synchronized Data Flow} (SFD) diagram with blocks and wires
-(\emph{part B} of figure~\ref{fig:Spec_transform}); 2) the \emph{Gate Descriptors}, pseudo
-code representing the behavior of each of the blocks used by the synthesized controller (\emph{part C} of
-figure~\ref{fig:Spec_transform}); 3) automatically generated Simulink block
-diagram (\emph{part D} of
-figure~\ref{fig:Spec_transform}); and 4) empty panel for performing simulation
-and test cases generation (\emph{part E} of
-figure~\ref{fig:Spec_transform}).
+attempt to synthesize the controller. For that the \emph{Transform} intention
+can be used by using the \emph{Alt+Enter} keys on the root of the specification
+(as shown in \emph{part A} of figure~\ref{fig:Spec_transform}). The generated
+output after applying the intention is comprised of: 1) the  \emph{Synchronized
+Data Flow} (SFD) diagram containing blocks connected by wires (\emph{part B} of
+figure~\ref{fig:Spec_transform}); 2) pseudo code representing the behavior of each of the blocks used
+by the synthesized controller (\emph{part C} of
+figure~\ref{fig:Spec_transform}); 3) a Simulink block
+diagram (\emph{part D} of figure~\ref{fig:Spec_transform}); and 4) empty panel
+for performing simulation and test cases generation (\emph{part E} of
+figure~\ref{fig:Spec_transform})\levi{fix panel to new version and there is
+some confusion here between numbers and letters. Maybe just use letters to
+avoid confusion}.
 %\vspace{-.7cm}
 \begin{figure*}[!h]
 \centering
@@ -75,7 +74,10 @@ generated empty panel for simulation}
 \label{fig:Spec_transform}
 \end{figure*}
 \vspace{-.5cm}
-\subsection{Simulation and Test Cases for Validation of Controller Behavior}
+\subsection{Simulation and Test Cases for Validation of Controller
+Behavior\levi{there are too many explanations here. You don't need to explain
+what things are, this is already done in the paper. Jut say which steps are
+done in the demo!}}
 \vspace{-.2cm}
 Validation of the generated controller to check if it behaves as expected can be
 performed using following techniques: 1) simulating the behavior of the
