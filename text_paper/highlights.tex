@@ -1,6 +1,7 @@
 \section{Highlights}
 \vspace{-.2cm}
 \subsection{``Real'' EARS}
+\vspace{-.1cm}
 EARS was not originally built to describe requirements at a level where they can
 automatically be transposed into a computer application. As such, an effort had
 to be made in order to overcome the semantic gap between the structured but
@@ -84,7 +85,7 @@ The vocabulary defined in the glossary is proposed to the requirements engineer
 by the \textsf{EARS-CTRL} IDE in order to fill in the placeholders of an EARS
 template when a new requirement is being written. Because well-formedness is
 enforced by construction, requirement specifications written in
-\textsf{EARS-CTRL} are always syntactically correct.\vspace{-.4cm}
+\textsf{EARS-CTRL} are always syntactically correct.\vspace{-.6cm}
 \begin{figure}[h!]
    \begin{center}
      \includegraphics[width=.5\textwidth]{images/glossary.png}
@@ -93,7 +94,7 @@ enforced by construction, requirement specifications written in
      \vspace{-.3cm}
      \label{fig:ears_glossary}
    \end{center}
-   \vspace{-1.5cm}
+   \vspace{-1.4cm}
  \end{figure} 
 \subsubsection{Simulation}
 Once a controller has been synthesized from a set of EARS requirements, it
@@ -102,10 +103,9 @@ so we have used the Simulink engine~\cite{simulink} as a simulation back-end.
 In figure~\ref{fig:ears_simulator} we display the \textsf{EARS-CTRL} panel that
 allows ``playing'' the controller by providing a sequence of inputs manually.
 Outputs are incrementally added to the panel as new inputs are provided by the
-requirements engineer. Note that, because controllers have internal state,
-the order in which commands are executed influences the controller's output. A
-``Reset'' button in the panel allows resetting the controller to its initial
-state.
+requirements engineer. Note that the simulation panel dynamically displays the
+sensors of the controller being simulated, as can be seen in
+figure~\ref{fig:ears_simulator} for the sliding doors example.
 \vspace{-.4cm}
 \subsubsection{Generation of Test Cases}
 \textsf{EARS-CTRL} allows generating test cases directly from the EARS
@@ -128,11 +128,10 @@ generation is configured by three parameters:\vspace{-.1cm}
 \end{itemize}
 \begin{figure}[h!]
    \begin{center}
-     \includegraphics[width=.5\textwidth]{images/simulation.png}
+     \includegraphics[width=.75\textwidth]{images/simulation.png}
      \vspace{-.3cm}
-     \caption{\textsf{EARS-CTRL} specification simulator\levi{sync picture
-     with text}}
-     \label{fig:ears_simulator}
+     \caption{\textsf{EARS-CTRL} specification simulator}
+     \label{fig:ears_simulator} 
    \end{center}
    \vspace{-1cm}
  \end{figure}
