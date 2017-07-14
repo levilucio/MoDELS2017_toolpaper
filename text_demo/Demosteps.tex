@@ -94,12 +94,12 @@ view and B) test case generation view}
 \label{fig:PanelView}
 \vspace{-.4cm}
 \end{figure*}
-\vspace{-.4cm}
+%\vspace{-.4cm}
 \subsubsection{Error Identification}
 We selected the step-by-step view of the panel. We wanted to reset the
 controller (execute the behavior of \emph{req6}in Figure~\ref{fig:QC_reqs}).
-We executed req1 till req5 (steps not discussed in detail due to space limitation).
-To simulate req6, we clicked the input
+We executed \emph{req1} till \emph{req5} (steps not discussed in detail due to
+space limitation). To simulate \emph{req6}, we clicked the input
 \textsf{\emph{reset Radio button is clicked}} on the panel (see \textsf{Part A}
 in Figure~\ref{fig:PanelView}) and press the \emph{Execute} button. After
 getting the result we expected all three outputs that are; 1) \emph{
@@ -114,7 +114,7 @@ Figure~\ref{fig:QC_reqs}.
 \includegraphics[width=.9\textwidth]{./images/Simulation_Error.png}
 \caption{Error Identified during step-by-step simulation}
 \label{fig:simError}
-\vspace{-.6cm}
+%\vspace{-.6cm}
 \end{figure*}
 %\vspace{-.3cm}
 \subsubsection{Automatic Test Cases Generation} 
@@ -123,5 +123,7 @@ Figure~\ref{fig:QC_reqs}.
 test case generation view of the panel. For performing the test cases
 generation, the user performs the process that is as follows, 1) select the
 \textsf{\emph{testCaseView}} from the drop down menu on the panel, 2)
-manually provides inputs for the simulation parameters (i.e., depth, allowSameInput and allowSameOutput) and 3) press the execute button. The output
-is added to \textsf{Result checker} part of the panel.A \textsf{“Reset Results”} button enables the user to reset the controller to its initial state.
+manually provides inputs for the simulation parameters (i.e., \emph{depth},
+\emph{allowSameInput} and \emph{allowSameOutput}) and 3) press the
+\emph{Execute} button.
+The output is added to \textsf{Result checker} part of the panel. A \textsf{“Reset Results”} button enables the user to reset the controller to its initial state.
