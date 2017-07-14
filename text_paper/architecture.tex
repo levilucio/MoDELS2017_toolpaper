@@ -5,21 +5,21 @@ components they exchange. The paragraphs below are numbered such that each
 description can be matched to the process-related components of the tool depicted in
 figure~\ref{fig:ears_ctrl_toolchain}.
 Letter-labels are used in figure~\ref{fig:ears_ctrl_toolchain} to refer to data
-artifacts.\vspace{-.3cm}
+artifacts.\\\vspace{-.9cm}
 \begin{figure}[h!] 
    \begin{center}
-     \includegraphics[width=.9\textwidth]{images/toolchain.png}
+     \includegraphics[width=.85\textwidth]{images/toolchain.png}
      \vspace{-.3cm}
      \caption{The \textsf{EARS-CTRL} Tool Chain\levi{finish pic}}
      \label{fig:ears_ctrl_toolchain}
    \end{center}
-      \vspace{-1cm}
+      \vspace{-1.3cm}
  \end{figure}
-\vspace{0cm}
+
 \paragraph{\textbf{Editors and Control Panels}\\} 
 \hspace{-.2cm}
 The requirements editor, the glossary editor, the simulation and
-test generation control panel and the synchronous data-flow diagram visualizer
+test generation control panels and the synchronous data-flow diagram visualizer
 (respectively noted (\textsf{a}), (\textsf{b}), (\textsf{c}) and (\textsf{d}) in figure~\ref{fig:ears_ctrl_toolchain}) have all been built as 
 domain-specific languages (DSLs) in the Meta Programming System (MPS)
 tool~\cite{mps}.
@@ -33,14 +33,14 @@ abstract syntax is directly edited which avoids the explicit or implicit
 intermediate step where the concrete syntax is parsed.
 A direct consequence of this is for example the fact that when a component's
 name is updated an \textsf{EARS-CTRL} glossary, that change will immediately be
-reflected in any requirements that refer to that component name.\vspace{-.2cm}
+reflected in any requirements that refer to that component name.\vspace{-.4cm} 
 % This automated
 % change is an off-the-shelf feature of any editor defined using MPS and an easy
 % way to guarantee that references between the several parts of an editor always
 % remain consistent.\vspace{-.2cm}
 \paragraph{\textbf{From EARS to Lineal Temporal Logic}\\}
 \label{sec:ears_LTL} 
-\hspace{-.2cm}
+\vspace{-0cm}
 Let us consider the requirement \textsf{Req1} which is part of the
 specification of the sliding doors controller in figure~\ref{fig:ears_reqs}:
 \begin{center}
@@ -102,5 +102,5 @@ present in the SDF specifications that are produced by \textsf{autoCode4} is
 available off-the-shelf in Simulink. As such, a number of stateful Simulink
 blocks had to be built by us to mimic the semantics of some of the blocks
 present in SDF specifications. The \textsf{EARS-CTRL} IDE
-communicates with Simulink via the \textsf{mathlabcontrol}\cite{mathlabcontrol}
-Java API.\vspace{-.6cm}
+communicates with Simulink via the \textsf{matlabcontrol}\cite{mathlabcontrol}
+Java API.\vspace{-.5cm}
