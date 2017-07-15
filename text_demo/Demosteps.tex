@@ -42,7 +42,7 @@ depicts the complete Quiz Controller specification.
 \textsf{EARS-CTRL}, (\emph{A}) empty instance of EARS template with placeholders, (\emph{B}) filling instance
 of an EARS template with information and (\emph{C}) completed EARS Specification}
 \label{fig:EARS_req}
-%\vspace{-.8cm}
+\vspace{-.8cm}
 \end{figure*}
 \vspace{-.2cm}
 \subsection{Synthesizing \textsf{EARS-CTRL} requirements}
@@ -69,7 +69,7 @@ generated Simulink model (an excerpt) and (\emph{E})
 generated empty panel for simulation}
 \label{fig:Spec_transform}
 \end{figure*}
-%\vspace{-.5cm}
+\vspace{-.5cm}
 \subsection{Simulation and Test Cases for Validation of Controller
 Behavior}
 \vspace{-.2cm}
@@ -94,27 +94,29 @@ view and B) test case generation view}
 \label{fig:PanelView}
 \vspace{-.4cm}
 \end{figure*}
-%\vspace{-.4cm}
-\subsubsection{Error Identification}
-We selected the step-by-step view of the panel. We wanted to reset the
-controller (execute the behavior of \emph{req6}in Figure~\ref{fig:QC_reqs}).
-We executed \emph{req1} till \emph{req5} (steps not discussed in detail due to
-space limitation). To simulate \emph{req6}, we clicked the input
-\textsf{\emph{reset Radio button is clicked}} on the panel (see \textsf{Part A}
-in Figure~\ref{fig:PanelView}) and press the \emph{Execute} button. After
-getting the result we expected all three outputs that are; 1) \emph{
+\vspace{-.4cm}
+\subsubsection{Error Identification Using Step-by-Step Simulation}
+In order simulate each of the requirements specified in EARS-CTRL (i.e.,
+\emph{req1} till \emph{req6} in Figure~\ref{fig:QC_reqs}) we do the following, for req1,  we click the
+following inputs on the panel, 1)\emph{Indicator high school is off}, 2)
+\emph{Indicator professor is off} and \emph{pupil Button 0 is pressed}. We press
+the \emph{Execute} button. The generated outputs reveal that the pupil indicator
+is in the \emph{On} state which is a intended behavior. Due to
+redundancy, we skip steps for requirements \emph{req2} till \emph{req5}. For
+\emph{req6}, we clicked the input \textsf{\emph{reset Radio button is clicked}} on the panel (see \textsf{Part A} in Figure~\ref{fig:PanelView}) and press the \emph{Execute} button. After
+getting the result we expect all three outputs that are; 1) \emph{
 indicator high school blink}, 2) \emph{indicator professor blink} and and 3)
 \emph{indicator pupil blink in} to be set to the \emph{Off} state. But we
-didn't get the expected behavior and the controller puts the indicator for the
+do not get the expected behavior and the controller puts the indicator for the
 pupil to the \emph{On} state as shown in Figure~\ref{fig:simError}. This
 investigation led us to identify the error in \emph{req6} in
 Figure~\ref{fig:QC_reqs}.
 \begin{figure*}[!h]
 \centering
-\includegraphics[width=.9\textwidth]{./images/Simulation_Error.png}
+\includegraphics[width=.7\textwidth]{./images/Simulation_Error.png}
 \caption{Error Identified during step-by-step simulation}
 \label{fig:simError}
-%\vspace{-.6cm}
+\vspace{-.6cm}
 \end{figure*}
 %\vspace{-.3cm}
 \subsubsection{Automatic Test Cases Generation} 
