@@ -1,14 +1,14 @@
 \section{Introduction}
-\vspace{-.5cm}The ultimate goal in human-computer interaction is that humans can
-``explain'' to computers their needs, using human-centered languages. Computers
-would then automatically perform the actions that satisfy those needs. This
-trend is on the rise with automated call-centers or personal
-assistants that, through voice commands, can search for itineraries,
-restaurants, hotels and even perform online bookings.
-
-In this paper we describe the \textsf{EARS-CTRL} tool for building and verifying
-software controllers. \textsf{EARS-CTRL} has as starting point the EARS (Easy
-Approach to Requirements Syntax) language. EARS was created at Rolls-Royce to
+%\vspace{-.3cm}The ultimate goal in human-computer interaction is that humans
+% can
+% ``explain'' to computers their needs, using human-centered languages. Computers
+% would then automatically perform the actions that satisfy those needs. This
+% trend is on the rise with automated call-centers or personal
+% assistants that, through voice commands, can search for itineraries,
+% restaurants, hotels and even perform online bookings.
+\vspace{-.3cm}In this paper we describe the \textsf{EARS-CTRL} tool for
+building and verifying discrete-event software controllers. \textsf{EARS-CTRL} has as starting point
+the EARS (Easy Approach to Requirements Syntax) language. EARS was created at Rolls-Royce to
 improve the expression of natural language requirements~\cite{EARS09} and can be
 seen as a way to ``gently'' constrain English. The application of EARS produces
 requirements in a small number of patterns. EARS copes well with large
@@ -26,11 +26,11 @@ experiment with and validate the controller.
 
 This paper builds on a previous article~\cite{LucioRCM17}.
 Our new contributions are a revision of the requirements language of
-\textsf{EARS-CTRL}, which is now fully aligned with the original EARS. We do so
-by improving the coverage of the semantic gap between EARS and the underlying
-logical formalism used by the controller synthesizer. We now also offer the
+\textsf{EARS-CTRL}, which is now has exactly the same syntax as the EARS
+language presented in~\cite{EARS09}. We do so by improving the coverage of the
+semantic gap between EARS and the underlying logical formalism used by the controller synthesizer. We now also offer the
 possibilities of simulating requirements specifications as well as of generating test cases.
-The \textsf{EARS-CTRL} tool is freely available as a GitHub project
+The \textsf{EARS-CTRL} tool is freely available as a GitHub project 
 at~\cite{EARSProject}. \vspace{-.4cm}
 
 % \levi{Talk about the rise of AI in program synthesis and formal methods and how

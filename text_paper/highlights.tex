@@ -7,12 +7,16 @@ automatically be transposed into a computer application. As such, an effort had
 to be made in order to overcome the semantic gap between the structured but
 non-formal nature of EARS and the strictly formal nature of the Linear Temporal
 Logic (LTL) formalism needed by the automated synthesis
-mechanisms.\vspace{-.5cm} \begin{figure}[h!]
+mechanisms. In particular, our work uses the  \textsf{GXW} subset of LTL as that
+subset is supported by the \textsf{autoCode4} tool we use for synthesizing
+controllers.
+
+\vspace{-.5cm} \begin{figure}[h!]
    \begin{center}
      \includegraphics[width=.9\textwidth]{images/EARS-Reqs.png}
      \vspace{-.3cm}
      \caption{\textsf{EARS-CTRL} Requirements for a sliding door
-     controller}
+     controller} 
      \label{fig:ears_reqs}
    \end{center} 
  \end{figure}
@@ -28,7 +32,7 @@ that, although not part of the original EARS, had been introduced to simplify
 translation into LTL. In particular we had introduced the possibility of adding
 an \emph{until} segment at the end of requirements which is not standard EARS
 and which we have removed in the current version of the tool.
-The work of bringing the syntax of \textsf{EARS-CTRL} closer to ``real'' EARS
+The work of matching the syntax of \textsf{EARS-CTRL} closer to ``real'' EARS
 while preserving a semantically meaniful translation into LTL was done together with Alistair Mavin, the
 co-author of this paper who is also the lead author of EARS~\cite{EARS09}.
 Our rationale is that, by remaining as faithful as possible to the original EARS
@@ -72,9 +76,9 @@ graphically.\vspace{-.3cm}
 % in the placeholders in an EARS requirement.\vspace{-.5cm}
 \vspace{-0cm}In order to build requirements model illustrated in
 figure~\ref{fig:ears_reqs} it is necessary to firstly build a glossary
-for the controller. An example of such a glossary is depicted in
-figure~\ref{fig:ears_glossary}. The first section of an \textsf{EARS-CTRL}
-glossary identifies the components of the system to be controlled. Each one of
+for the controller. Glossaries are specific to \textsf{EARS-CTRL} and are not
+part of the EARS language described in~\cite{EARS09}. An example of such a
+glossary is depicted in figure~\ref{fig:ears_glossary}. The first section of an \textsf{EARS-CTRL} glossary identifies the components of the system to be controlled. Each one of
 those components contains actuators and (possibly) sensors that will be used by
 the controller logic as outputs to and inputs from the real system. To allow
 for more ease of writing when building requirements, aliases for logical expressions
@@ -145,4 +149,7 @@ cases for a controller implemented using alternative means.\vspace{-.5cm}
 \vspace{-.2cm}Although it is not possible to generate C code for the controller
 directly from \textsf{EARS-CTRL}, this can be achieved by directly running Simulink's code
 generator on the Simulink model obtained from an \textsf{EARS-CTRL} requirements
-specification.\vspace{-.5cm}
+specification. This possibility is particularly important for our next steps in
+our collaboration with Rolls-Royce as we wish to experiment with running the
+synthesized controllers in real or simulated execution enviroments.
+\vspace{-.5cm}

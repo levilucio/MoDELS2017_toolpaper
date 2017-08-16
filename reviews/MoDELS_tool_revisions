@@ -1,0 +1,60 @@
+Reviewer 1: There are some further minor issues, including typos (autoCode4 is called autoConf4 in several places), inconsistencies between the video and the tool demo section (they use different examples and showcase different use cases), and hard-to-read figures (almost all of them).
+
+Reply: Fixed autoCode4 typos
+
+——————————
+
+Reviewer 2: It would be good to classify which controllers do you have in mind, i.e. that you work with a discrete-event controllers.
+
+Reply: Added the following text to the introduction: “In this paper we describe the EARS-CTRL tool for building and verifying discrete-event software controllers.”
+
+Reviewer 2: Clearly enumerate the differences between EARS and EARS-CTRL languages
+
+Reply:
+
+Added to section 1:
+
+“Our new contributions are a revision of the requirements language of
+\textsf{EARS-CTRL}, which is now has exactly the same syntax as the EARS
+language presented in~\cite{EARS09}.”
+
+Added to section 2.3:
+
+“Glossaries are specific to \textsf{EARS-CTRL} and are not part of the EARS language described in~\cite{EARS09}.”
+
+Reviewer 2: Mention that you target GXW subset of LTL when you mention LTL in Section 2.
+
+Added to section 2:
+
+“In particular, our work uses the  \textsf{GXW} subset of LTL as that
+subset is supported by the \textsf{autoCode4} tool we use for synthesizing
+controllers.”
+
+Reviewer 2: Next to Figure 2, you could probably squeeze an overview of EARS-CTRL grammar.
+
+???
+
+Reviewer 2: You have chosen Simulink for the controller simulation which makes sense, but I was wondering if you could also do the same using Ptolemy II which autoCode4 targets directly. This will make it a fully open source solution. In other words, what are the benefits of using Simulink over Ptolemy II?
+
+Reply: we have chosen Simulink for simulation as Simulink is used at fortiss and in that sense it is a means from bridging with other projects in our company.
+
+Reviewer 2: The C code generation - is that something that is your target? In general, it would be nice to include some discussion for motivation of such tool, which systems does it target and what are the planned future work.
+
+Reply: our next steps will be to evaluate the applicability of our approach to the problems at Rolls-Royce (although it is not exactly clear which kinds of systems as thus far we have only worked at the level of requirements). In that sense we wish to generate controllers that can run in machines and for that it is important to have running code. We have added the following text to section 2.4.: “This possibility is particularly important for our next steps in our collaboration with Rolls-Royce as we wish to experiment with running the synthesized controllers in real or simulated execution enviroments.”
+
+——————————
+
+Reviewer 3: As is seen frequently, the introduction contains some...bold and unsubstantiated assertions:
+ * "The ultimate goal" - says who?
+ * "...using human-centered languages..." - I might agree to "natural language" but your statment...nope.
+ * "This trend..." - there is a trend? Provide evidence! The examples don't fit your statement.
+
+Removed this part of the paper as it is not necessary to the understanding of what follows.
+
+Reviewer 3: "EARS codes well with large... please provide evidence.” - the evidence is given by the references in the sentence.
+
+
+
+Reviewer 3: “The biggest weakness of the paper, and the demo, is the choice of examples. Using examples of trivial size, or the silly and irrelevant "quiz" domain suggests that the approach is not up to par, in contrast to your earlier assertions, and is not capable of supporting industry-relevant cases. I would urge you to use a different example in your demo.”:
+
+We have used for the video a different example than the one presented in the demo paper. Namely, we use the liquid mixer example which is larger than the examples in the main paper or the demo paper.
