@@ -53,8 +53,6 @@ Removed this part of the paper as it is not necessary to the understanding of wh
 
 Reviewer 3: "EARS codes well with large... please provide evidence.” - the evidence is given by the references in the sentence.
 
-
-
 Reviewer 3: “The biggest weakness of the paper, and the demo, is the choice of examples. Using examples of trivial size, or the silly and irrelevant "quiz" domain suggests that the approach is not up to par, in contrast to your earlier assertions, and is not capable of supporting industry-relevant cases. I would urge you to use a different example in your demo.”:
 
 We have used for the video a different example than the one presented in the demo paper. Namely, we use the liquid mixer example which is larger than the examples in the main paper or the demo paper.

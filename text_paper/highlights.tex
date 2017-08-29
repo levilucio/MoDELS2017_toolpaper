@@ -33,8 +33,8 @@ translation into LTL. In particular we had introduced the possibility of adding
 an \emph{until} segment at the end of requirements which is not standard EARS
 and which we have removed in the current version of the tool.
 The work of matching the syntax of \textsf{EARS-CTRL} closer to ``real'' EARS
-while preserving a semantically meaniful translation into LTL was done together with Alistair Mavin, the
-co-author of this paper who is also the lead author of EARS~\cite{EARS09}.
+while preserving a semantically meaningful translation into LTL was done
+together with Alistair Mavin, the co-author of this paper who is also the lead author of EARS~\cite{EARS09}.
 Our rationale is that, by remaining as faithful as possible to the original EARS
 syntax, we: 1) benefit from all the advantages of using EARS already
 investigated and described in the literature~\cite{EARS09,EARS16}; and 2)
@@ -74,33 +74,34 @@ graphically.\vspace{-.3cm}
 % well-formedness, as only correctly formed EARS patterns can be added to the
 % specification. Secondly, only valid sensors or actuators can be picked to fill
 % in the placeholders in an EARS requirement.\vspace{-.5cm}
-\vspace{-0cm}In order to build requirements model illustrated in
-figure~\ref{fig:ears_reqs} it is necessary to firstly build a glossary
-for the controller. Glossaries are specific to \textsf{EARS-CTRL} and are not
-part of the EARS language described in~\cite{EARS09}. An example of such a
-glossary is depicted in figure~\ref{fig:ears_glossary}. The first section of an \textsf{EARS-CTRL} glossary identifies the components of the system to be controlled. Each one of
-those components contains actuators and (possibly) sensors that will be used by
-the controller logic as outputs to and inputs from the real system. To allow
-for more ease of writing when building requirements, aliases for logical expressions
-involving sensors or actuators can also be defined in the glossary. More
-advanced users also have the possibility of defining invariant relationships
-between sensors or actuators.
+In order to build requirements model illustrated in
+figure~\ref{fig:ears_reqs} it is necessary to firstly build a glossary for the
+controller. Glossaries are specific to \textsf{EARS-CTRL} and are not part of
+the EARS language described in~\cite{EARS09}. An
+\textsf{EARS-CTRL} glossary identifies the components of the system to be
+controlled. Each one of those components contains actuators and (possibly)
+sensors that will be used by the controller logic as outputs to and inputs from
+the real system.
+% To allow for more ease of writing when building requirements,
+% aliases for logical expressions involving sensors or actuators can also be
+% defined in the glossary. More advanced users also have the possibility of
+% defining invariant relationships between sensors or actuators.
 The vocabulary defined in the glossary is proposed to the requirements engineer
 by the \textsf{EARS-CTRL} IDE in order to fill in the placeholders of an EARS
 template when a new requirement is being written. Because well-formedness is
 enforced by construction, requirement specifications written in
-\textsf{EARS-CTRL} are always syntactically correct.\vspace{-.6cm}
-\begin{figure}[h!]
-   \begin{center}
-     \includegraphics[width=.5\textwidth]{images/glossary.png}
-     \caption{\textsf{EARS-CTRL} Glossary for sliding door
-     controller}
-     \vspace{-.3cm}
-     \label{fig:ears_glossary}
-   \end{center}
-   \vspace{-1.4cm}
- \end{figure} 
-\subsubsection{Simulation}
+\textsf{EARS-CTRL} are always syntactically correct.
+% \begin{figure}[h!]
+%    \begin{center}
+%      \includegraphics[width=.5\textwidth]{images/glossary.png}
+%      \caption{\textsf{EARS-CTRL} Glossary for sliding door
+%      controller}
+%      \vspace{-.3cm}
+%      \label{fig:ears_glossary}
+%    \end{center}
+%    \vspace{-1.4cm}
+%  \end{figure} 
+% \subsubsection{Simulation}
 Once a controller has been synthesized from a set of EARS requirements, it
 becomes important to understand whether it behaves as expected. In order to do
 so we have used the Simulink engine~\cite{simulink} as a simulation back-end.
@@ -124,7 +125,7 @@ generation is configured by three parameters:\vspace{-.1cm}
   \item \emph{Allow parallel inputs:} enables or disables the possibility of
   having more than one sensor being active for inputs in the test case.
   \item \emph{Allow repeated inputs:} enables or disables having repeated inputs
-  in a test case.\vspace{-.3cm} 
+  in a test.\vspace{-.5cm}
 %   When enabled this parameter makes it such that
 %   an input vector cannot occur more than once in a test sequence -- thus
 %   limiting the length of test sequences to the number of possible input
@@ -132,7 +133,7 @@ generation is configured by three parameters:\vspace{-.1cm}
 \end{itemize}
 \begin{figure}[h!]
    \begin{center}
-     \includegraphics[width=.75\textwidth]{images/simulation.png}
+     \includegraphics[width=.85\textwidth]{images/simulation.png} 
      \vspace{-.3cm}
      \caption{\textsf{EARS-CTRL} specification simulator}
      \label{fig:ears_simulator} 
@@ -151,5 +152,5 @@ directly from \textsf{EARS-CTRL}, this can be achieved by directly running Simul
 generator on the Simulink model obtained from an \textsf{EARS-CTRL} requirements
 specification. This possibility is particularly important for our next steps in
 our collaboration with Rolls-Royce as we wish to experiment with running the
-synthesized controllers in real or simulated execution enviroments.
+synthesized controllers in real or simulated execution environments.
 \vspace{-.5cm}
