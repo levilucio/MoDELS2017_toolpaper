@@ -1,0 +1,118 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\usepackage{makeidx}  % allows for indexgeneration
+% 
+\usepackage{calc}
+\usepackage{color, colortbl}
+
+\usepackage{xcolor} 
+
+\usepackage[final,pdftex]{graphicx}
+        \pdfcompresslevel=9
+        \DeclareGraphicsExtensions{.png} 
+
+\usepackage{chngcntr}
+\usepackage{epsfig} 
+\usepackage{url}
+ 
+\usepackage{ifthen} 
+\usepackage{amssymb}
+ 
+\usepackage{float} 
+
+\newboolean{showcomments}
+\setboolean{showcomments}{false} % toggle to show or hide comments
+\ifthenelse{\boolean{showcomments}}
+  {\newcommand{\nb}[2]{
+    \fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}  
+    {$\blacktriangleright$#2$\blacktriangleleft$}
+   }
+   \newcommand{\version}{\emph{\scriptsize$-$working$-$}}
+  } 
+  {\newcommand{\nb}[2]{}
+   \newcommand{\version}{}
+  } 
+
+\usepackage[linewidth=1pt]{mdframed}
+\usepackage{lipsum}  
+
+% for comments
+\newcommand\levi[1]{\nb{Levi}{\textcolor{teal}{#1}}}
+\newcommand\salman[1]{\nb{Salman}{\textcolor{blue}{#1}}}
+\newcommand\ch[1]{\nb{Chih-Hong}{\textcolor{red}{#1}}}
+\newcommand\mav[1]{\nb{Mav}{\textcolor{black}{#1}}}
+
+\usepackage[font={small}]{caption, subfig}
+
+\begin{document}
+
+\title{EARS-CTRL: Generating Controllers for Dummies
+\thanks{The work presented in this paper was developed for the ``IETS3'' project, funded
+by the German Federal Ministry of Education and Research under code
+01IS15037B.}
+}
+
+\author{\IEEEauthorblockN{Levi L\'ucio}
+\IEEEauthorblockA{\textit{Model-Based Software Engineering} \\
+\textit{fortiss GmbH}\\
+Munich, Germany \\
+lucio@fortiss.org}
+\and
+\IEEEauthorblockN{Salman Rahman}
+\IEEEauthorblockA{\textit{}
+\textit{Technische Universit\"at M\"unchen}\\
+Munich, Germany \\
+salman.rahman@tum.de}
+\and
+\IEEEauthorblockN{Saad Bin Abid}
+\IEEEauthorblockA{\textit{Model-Based Software Engineering} \\
+\textit{fortiss GmbH}\\
+Munich, Germany \\
+abid@fortiss.org}
+\and
+\hspace{7.3cm}\IEEEauthorblockN{Alistair Mavin}
+\hspace{7.3cm}\IEEEauthorblockA{\textit{}
+\hspace{7.3cm}\textit{Rolls-Royce}\\
+\hspace{7.3cm}Derby, UK\\
+\hspace{7.3cm}alistair.mavin@rolls-royce.com}
+}
+
+\maketitle
+
+\begin{abstract}
+In this paper we present the EARS-CTRL tool for synthesizing and validating
+controller software for embedded systems. EARS-CTRL has as starting point
+requirements written in (English) natural language, more specifically in the
+EARS (Easy Approach to Requirements Syntax) language invented at Rolls-Royce and
+currently in use at numerous organizations around the world. After expressing
+the requirements in English, the requirements engineer can produce the
+controller code at the press of a button. 
+EARS-CTRL then provides facilities for validating the generated controller that
+allow step-by-step simulation or test-case generation using MATLAB
+Simulink.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Software Controllers, Natural Language, Code Synthesis, MathLab Simulink
+\end{IEEEkeywords}
+
+\input{text_ieee/introduction.tex}  
+
+\input{text_ieee/highlights.tex} 
+
+\input{text_ieee/architecture.tex}
+
+\input{text_ieee/relatedwork.tex}
+
+\bibliographystyle{abbrv}
+\bibliography{../models_tool_2017}
+
+\end{document}

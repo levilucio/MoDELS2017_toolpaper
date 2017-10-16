@@ -1,0 +1,61 @@
+\section{Introduction}
+%\vspace{-.3cm}The ultimate goal in human-computer interaction is that humans
+% can
+% ``explain'' to computers their needs, using human-centered languages. Computers
+% would then automatically perform the actions that satisfy those needs. This
+% trend is on the rise with automated call-centers or personal
+% assistants that, through voice commands, can search for itineraries,
+% restaurants, hotels and even perform online bookings.
+In this paper we describe the \textsf{EARS-CTRL} tool for
+building and verifying discrete-event software controllers. \textsf{EARS-CTRL} has as starting point
+the EARS (Easy Approach to Requirements Syntax) language. EARS was created at Rolls-Royce to
+improve the expression of natural language requirements~\cite{EARS09} and can be
+seen as a way to ``gently'' constrain English. The application of EARS produces
+requirements in a small number of patterns. EARS copes well with large
+specifications of requirements for several domains~\cite{EARS10,EARS16}. EARS is
+also an effective way of reducing many of the problems that plague requirements
+documents written using unconstrained natural language~\cite{EARS09}.
+
+With the \textsf{EARS-CTRL} tool we make a step in the direction of controller
+construction using natural language as the central specification.
+After specifying the vocabulary to be used in the specification, a requirements
+engineer writes the specification using EARS templates. Then, at the press of a
+button, the controller is synthesized. Simulation and test case
+generation panels allow the requirements engineer to immediately
+experiment with and validate the controller.
+
+This paper builds on a previous article~\cite{LucioRCM17}.
+Our new contributions are a revision of the requirements language of
+\textsf{EARS-CTRL}, which is now has exactly the same syntax as the EARS
+language presented in~\cite{EARS09}. We do so by improving the coverage of the
+semantic gap between EARS and the underlying logical formalism used by the controller synthesizer. We now also offer the
+possibilities of simulating requirements specifications as well as of generating test cases.
+The \textsf{EARS-CTRL} tool is freely available as a GitHub project 
+at~\cite{EARSProject}.
+
+% \levi{Talk about the rise of AI in program synthesis and formal methods and how
+% we enable requirements engineers to get closer to get closer to a code-free
+% program synthesis by providing an appropriate IDE} 
+% 
+% Note that the front-end of
+% the tool is based on the MPS (Meta-Programming System) meta-editor.
+
+% The contributions of this paper are:
+% \begin{itemize}
+%   \item EARS syntax:
+% \begin{itemize}
+%   \item components are now devices that can have sensors and actuators and are
+%   described in the glossary. This makes it for a more fluid English description. 
+%   \item until clauses have been removed from templates. 
+% \end{itemize}
+% \item{Synthesis}
+% \begin{itemize}
+%   \item lifting of error codes from the synthesizer. 
+% \end{itemize}
+% \item Simulation and test case generation.
+% \begin{itemize}
+%   \item interaction with simulink for simulation.
+%   \item interaction with simulink for text case generation
+% \end{itemize}
+
+%\end{itemize}

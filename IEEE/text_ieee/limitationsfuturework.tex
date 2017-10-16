@@ -1,0 +1,20 @@
+\section{Limitations and Future Work}
+\label{sec:limfuturework}
+Due to the boolean representation of sensors and actuators in
+\textsf{autoCode4} it is currently not possible for \textsf{EARS-CTRL} to express or analyze
+states of the system that involve numerical data. This naturally limits our
+approach to controllers for systems where sensors or actuators can be
+represented using boolean types.
+For instance, expressing a state such as ``the throttle is pushed to 1/4 of its
+capacity'' using \textsf{EARS-CTRL} would at best involve modelling four
+different sensors in order to partition the input space of a single sensor. Such
+an approach may prove to be infeasible and/or impractical and other code
+synthesizers for \textsf{EARS-CTRL} might be considered in the future.\levi{which ones?}
+
+Future work will concentrate on exploring the usability of
+\textsf{EARS-CTRL} for larger case studies. In particular we expect to continue
+the collaboration with Rolls-Royce in order obtain real requirements such that
+the synthesis and verification mechanisms explained in this paper can be put to
+the test in the field. It is of particular interest to understand not only how
+\textsf{EARS-CTRL} \textsf{autoCode4}-based synthesis will scale, but also how
+the verification and debug mechanisms we propose are helpful in practice.\levi{is this too self-deprecating?}
